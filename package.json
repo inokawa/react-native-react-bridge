@@ -1,0 +1,47 @@
+{
+  "name": "react-native-react-dom",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest",
+    "tsc": "tsc -p . --noEmit",
+    "tsc:d": "tsc -p . --outDir lib -d --emitDeclarationOnly",
+    "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@types/node": "^14.14.6",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.32.0",
+    "typescript": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react-native": "^0.60.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inokawa/react-native-react-dom.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-dom",
+    "metro",
+    "webview",
+    "html"
+  ],
+  "author": "inokawa <stratoooo-taster@yahoo.co.jp> (https://github.com/inokawa/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inokawa/react-native-react-dom/issues"
+  },
+  "homepage": "https://github.com/inokawa/react-native-react-dom#readme"
+}
