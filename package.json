@@ -1,5 +1,5 @@
 {
-  "name": "react-native-react-dom",
+  "name": "react-native-react-bundler",
   "version": "0.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inokawa/react-native-react-dom.git"
+    "url": "git+https://github.com/inokawa/react-native-react-bundler.git"
   },
   "keywords": [
     "react",
@@ -54,7 +54,7 @@
   "author": "inokawa <stratoooo-taster@yahoo.co.jp> (https://github.com/inokawa/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/inokawa/react-native-react-dom/issues"
+    "url": "https://github.com/inokawa/react-native-react-bundler/issues"
   },
-  "homepage": "https://github.com/inokawa/react-native-react-dom#readme"
+  "homepage": "https://github.com/inokawa/react-native-react-bundler#readme"
 }
