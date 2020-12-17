@@ -6,6 +6,8 @@
 
 Supports RN 0.60+. This may work in previous versions but not confirmed.
 
+**This is under development**
+
 ## Install
 
 WIP
