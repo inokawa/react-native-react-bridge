@@ -1,2 +1,2 @@
-export { RNDOM } from "./RNDOM";
-export { bundleReact } from "./bundler";
+export type { Message } from "./common";
+export { useBridge } from "./bridge";

@@ -1,13 +1,12 @@
 {
-  "name": "react-native-react-bundler",
+  "name": "react-native-react-bridge",
   "version": "0.0.0",
-  "description": "",
+  "description": "An easy way to integrate your React app into React Native app.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "babel/index.js"
+    "lib"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -29,7 +28,7 @@
     "jest": "26.4.2",
     "metro-react-native-babel-preset": "^0.64.0",
     "react": "16.13.1",
-    "react-dom": "17.0.1",
+    "react-dom": "16.13.1",
     "react-native": "0.63.4",
     "react-native-webview": "11.0.2",
     "rimraf": "^3.0.2",
@@ -45,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inokawa/react-native-react-bundler.git"
+    "url": "git+https://github.com/inokawa/react-native-react-bridge.git"
   },
   "keywords": [
     "react",
@@ -58,7 +57,7 @@
   "author": "inokawa <stratoooo-taster@yahoo.co.jp> (https://github.com/inokawa/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/inokawa/react-native-react-bundler/issues"
+    "url": "https://github.com/inokawa/react-native-react-bridge/issues"
   },
-  "homepage": "https://github.com/inokawa/react-native-react-bundler#readme"
+  "homepage": "https://github.com/inokawa/react-native-react-bridge#readme"
 }

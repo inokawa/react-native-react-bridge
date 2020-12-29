@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`replaceEntryPaths import { bundleReact } 1`] = `"\\"use strict\\";var _interopRequireDefault=require(\\"@babel/runtime/helpers/interopRequireDefault\\");var _react=_interopRequireDefault(require(\\"react\\"));var _reactNativeReactBundler=require(\\"react-native-react-bundler\\");var Comp=REPLACED;var App=function App(){return _react.default.createElement(_reactNativeReactBundler.RNDOM,{app:Comp});};"`;
-
-exports[`replaceEntryPaths import all 1`] = `"\\"use strict\\";var _interopRequireWildcard=require(\\"@babel/runtime/helpers/interopRequireWildcard\\");var _interopRequireDefault=require(\\"@babel/runtime/helpers/interopRequireDefault\\");var _react=_interopRequireDefault(require(\\"react\\"));var RNR=_interopRequireWildcard(require(\\"react-native-react-bundler\\"));var Comp=REPLACED;var App=function App(){return _react.default.createElement(RNR.RNDOM,{app:Comp});};"`;
-
-exports[`replaceEntryPaths require { bundleReact } 1`] = `"\\"use strict\\";var React=require(\\"react\\");var _require=require(\\"react-native-react-bundler\\"),bundleReact=_require.bundleReact,RNDOM=_require.RNDOM;var Comp=REPLACED;var App=function App(){return React.createElement(RNDOM,{app:Comp});};"`;
-
-exports[`replaceEntryPaths require all 1`] = `"\\"use strict\\";var React=require(\\"react\\");var RNR=require(\\"react-native-react-bundler\\");var Comp=REPLACED;var App=function App(){return React.createElement(RNR.RNDOM,{app:Comp});};"`;
