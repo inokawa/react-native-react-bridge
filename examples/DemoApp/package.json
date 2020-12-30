@@ -7,11 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "(cd ios && pod install)"
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-dom": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-react-bridge": "0.0.1",
+    "react-native-webview": "11.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
