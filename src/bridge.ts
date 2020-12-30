@@ -40,10 +40,14 @@ export const useBridge = <T>(
     (mes: Message<T>) => {
       ref.current?.injectJavaScript(`
 (function() {
+try { 
   window.dispatchEvent(
-    new CustomEvent(${EVENT_KEY},{detail:${JSON.stringify(mes)}})
+    new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(mes)}})
   );
-  return true;
+} catch(e) {
+  // NOP
+}
+return true;
 })()
 `);
     },
