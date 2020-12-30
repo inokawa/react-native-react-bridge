@@ -9,7 +9,7 @@ export const transform = async (args) => {
     const res = await bundle(filename);
     return metroTransformer.transform({
       ...args,
-      src: `export default \`${res}\`;`,
+      src: `export default String.raw\`${res}\`;`,
     });
   }
 
