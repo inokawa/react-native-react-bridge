@@ -4,12 +4,22 @@
 
 An easy way to integrate your [React](https://github.com/facebook/react) app into [React Native](https://github.com/facebook/react-native) app.
 
-**This is under development**
+## Why?
+
+Run React app in React Native app is logically possible if you run your web code in WebView using [react-native-webview](https://github.com/react-native-webview/react-native-webview).
+However bundling React code with React Native is troublesome and implementing communication between React Native and WebView is so hard.
+
+This library gives a bridge to make it easy.
+This will bundle the whole React app by some additional codes and it will be automatically re-compiled if you edit it.
+You rarely need to think which code you are editing for React or React Native, like isomorphic.
+The communication between React app and React Native app will be also simplified by this.
 
 ## Install
 
 ```sh
 npm install react-native-react-bridge
+
+# These are used to render React app in WebView
 npm install react-dom react-native-webview
 ```
 
@@ -20,8 +30,100 @@ npm install react-dom react-native-webview
 
 ## Usage
 
-WIP
+1. Fix `metro.config.js` to use babelTransformer from this library.
 
-## Examples
+```javascript
+module.exports = {
+  transformer: {
+    babelTransformerPath: require.resolve('react-native-react-bridge/lib/plugin'),
+    ...
+  },
+};
+```
 
-WIP
+2. Make entry file for React app.
+
+```jsx
+// WebApp.js
+
+import React, { useState } from "react";
+import {
+  webViewRender,
+  emit,
+  useSubscribe,
+} from "react-native-react-bridge/lib/web";
+
+const Root = () => {
+  const [data, setData] = useState("");
+  // useSubscribe hook receives message from React Native
+  useSubscribe((message) => {
+    if (message.type === "success") {
+      setData(message.data);
+    }
+  });
+  return (
+    <div>
+      <div>{data}</div>
+      <button
+        onClick={() => {
+          // emit sends message to React Native
+          //   type: event name
+          //   data: some data which will be serialized by JSON.stringify
+          emit({ type: "hello", data: 123 });
+        }}
+      />
+    </div>
+  );
+};
+
+// This statement is detected by babelTransformer as an entry point
+// All dependencies are resolved, compressed and stringified into one file
+export default webViewRender(<Root />);
+```
+
+3. Use the entry file in your React Native app.
+
+```jsx
+// App.js
+
+import React from "react";
+import WebView from "react-native-webview";
+import { useBridge } from "react-native-react-bridge";
+import webApp from "./WebApp";
+
+const App = () => {
+  // useBridge hook create props for WebView and handle communication
+  // 1st argument is the source code of React app
+  // 2nd argument is callback to receive message from React
+  const { ref, source, onMessage, emit } = useBridge(webApp, (message) => {
+    // emit sends message to React
+    //   type: event name
+    //   data: some data which will be serialized by JSON.stringify
+    if (message.type === "hello" && message.data === 123) {
+      emit({ type: "success", data: "succeeded!" });
+    }
+  });
+
+  return (
+    <WebView
+      // ref, source and onMessage must be passed to react-native-webview
+      ref={ref}
+      source={source}
+      onMessage={onMessage}
+    />
+  );
+};
+```
+
+## Demo
+
+This repository includes demo app.
+
+Before running this app, please prepare environment for React Native (https://reactnative.dev/docs/environment-setup).
+
+```sh
+git clone git@github.com:inokawa/react-native-react-bridge.git
+cd examples/DemoApp
+npm install
+npm run ios # or npm run android
+```
