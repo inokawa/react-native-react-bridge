@@ -117,6 +117,8 @@ const App = () => {
 };
 ```
 
+4. Start your React Native app!
+
 ## Demo
 
 This repository includes demo app.
