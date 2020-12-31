@@ -14,6 +14,8 @@ This will bundle the whole React app by some additional codes and it will be aut
 You rarely need to think which code you are editing for React or React Native, like isomorphic.
 The communication between React app and React Native app will be also simplified by this.
 
+<img src="./examples/ios.gif" height="500px" /> <img src="./examples/android.gif" height="500px" />
+
 ## Install
 
 ```sh
