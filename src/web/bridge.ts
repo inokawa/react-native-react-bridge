@@ -7,11 +7,11 @@ export const webViewRender = (root: JSX.Element): string => {
   return ""; // dummy
 };
 
-export const emit = <T>(mes: Message<T>) => {
-  (window as any).ReactNativeWebView.postMessage(JSON.stringify(mes));
+export const emit = <T>(message: Message<T>) => {
+  (window as any).ReactNativeWebView.postMessage(JSON.stringify(message));
 };
 
-export const useSubscribe = <T>(onSubscribe: (mes: Message<T>) => void) => {
+export const useSubscribe = <T>(onSubscribe: (message: Message<T>) => void) => {
   useEffect(() => {
     const listener = (e: any) => {
       if (!isMessageEvent<T>(e)) return;

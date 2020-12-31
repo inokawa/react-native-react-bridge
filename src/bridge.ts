@@ -4,7 +4,7 @@ import { EVENT_KEY, ROOT_ID, Message } from "./common";
 
 export const useBridge = <T>(
   app: string,
-  onSubscribe: (mes: Message<T>) => void
+  onSubscribe: (message: Message<T>) => void
 ) => {
   const ref = useRef<WebView>(null);
   const source = useMemo(
@@ -37,12 +37,12 @@ export const useBridge = <T>(
     [onSubscribe]
   );
   const emit = useCallback(
-    (mes: Message<T>) => {
+    (message: Message<T>) => {
       ref.current?.injectJavaScript(`
 (function() {
 try { 
   window.dispatchEvent(
-    new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(mes)}})
+    new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(message)}})
   );
 } catch(e) {
   // NOP
