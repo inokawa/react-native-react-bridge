@@ -37,6 +37,8 @@ npm install react-dom react-native-webview
 ```javascript
 module.exports = {
   transformer: {
+    // This detects entry points of React app and transforms them
+    // For the other files this will switch to use default `metro-react-native-babel-transformer` for transforming
     babelTransformerPath: require.resolve('react-native-react-bridge/lib/plugin'),
     ...
   },
@@ -118,6 +120,10 @@ const App = () => {
 ```
 
 4. Start your React Native app!
+
+## Limitations
+
+TODO
 
 ## Demo
 
