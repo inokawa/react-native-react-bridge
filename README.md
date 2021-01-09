@@ -1,6 +1,6 @@
 # react-native-react-bridge
 
-[![npm version](https://badge.fury.io/js/react-native-react-bridge.svg)](https://badge.fury.io/js/react-native-react-bridge) ![check](https://github.com/inokawa/react-native-react-bridge/workflows/check/badge.svg)
+![npm](https://img.shields.io/npm/v/react-native-react-bridge) ![check](https://github.com/inokawa/react-native-react-bridge/workflows/check/badge.svg)
 
 An easy way to integrate your [React](https://github.com/facebook/react) app into [React Native](https://github.com/facebook/react-native) app with WebView.
 
