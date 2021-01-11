@@ -1,5 +1,8 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["every weekend"],
+  "patch": {
+    "automerge": true
+  }
 }
