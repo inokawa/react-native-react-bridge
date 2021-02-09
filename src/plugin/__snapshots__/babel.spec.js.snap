@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createContent export default webViewRender(App) 1`] = `
+"export default String.raw\`
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=\\"utf-8\\" />
+  <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\\" />
+  
+</head>
+<body style=\\"margin: 0 !important;padding: 0 !important;\\">
+  <div id=\\"root\\"></div>
+  <script type=\\"text/javascript\\">(function(){import React from \\"react\\";
+import { webViewRender } from \\"react-native-react-bridge/lib/web\\";
+import Comp from \\"./Component\\";
+
+const App = () => {
+  return <Comp />;
+};
+
+export default webViewRender(App);
+})()</script>
+</body>
+</html>
+\`;"
+`;
