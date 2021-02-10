@@ -23,4 +23,11 @@ describe("bundle", () => {
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
   });
+
+  it("with images", async () => {
+    const filename = "app-export-default-with-images.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
 });
