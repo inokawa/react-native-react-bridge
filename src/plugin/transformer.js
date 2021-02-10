@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const metroTransformer = require("metro-react-native-babel-transformer");
 
 module.exports.transform = async (args) => {
@@ -14,33 +15,33 @@ module.exports.transform = async (args) => {
     case ".bmp":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "bmp"),
+        src: injectImage(filename, "bmp"),
       });
     case ".gif":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "gif"),
+        src: injectImage(filename, "gif"),
       });
     case ".png":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "png"),
+        src: injectImage(filename, "png"),
       });
     case ".jpg":
     case ".jpeg":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "jpeg"),
+        src: injectImage(filename, "jpeg"),
       });
     case ".webp":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "webp"),
+        src: injectImage(filename, "webp"),
       });
     case ".svg":
       return metroTransformer.transform({
         ...args,
-        src: injectImage(src, "svg+xml"),
+        src: injectImage(filename, "svg+xml"),
       });
     default:
       break;
@@ -60,7 +61,7 @@ const injectCss = (css) => `
 })();
 `;
 
-const injectImage = (src, ext) =>
-  `export default String.raw\`data:image/${ext};base64,${Buffer.from(
-    src
-  ).toString("base64")}\`;`;
+const injectImage = (filename, ext) => {
+  const src = fs.readFileSync(filename, "base64");
+  return `export default "data:image/${ext};base64,${src}";`;
+};
