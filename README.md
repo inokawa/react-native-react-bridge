@@ -126,7 +126,7 @@ const App = () => {
 ## Limitations
 
 - In web side, `.js`, `.ts`, `.jsx`, `.tsx`, `.css` and `.json` are currently supported extensions.
-- If you have some feature request, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues).
+- If you have some feature requests or improvements, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues).
 
 ## Demo
 
