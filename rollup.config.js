@@ -43,4 +43,13 @@ export default [
       },
     ],
   },
+  {
+    input: "src/plugin/transformer.js",
+    output: [
+      {
+        file: `${mainDir}/plugin/transformer.js`,
+        format: "cjs",
+      },
+    ],
+  },
 ];
