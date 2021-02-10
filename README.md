@@ -56,6 +56,8 @@ import {
   emit,
   useSubscribe,
 } from "react-native-react-bridge/lib/web";
+// Import css is supported
+import "./example.css";
 
 const Root = () => {
   const [data, setData] = useState("");
@@ -123,7 +125,8 @@ const App = () => {
 
 ## Limitations
 
-TODO
+- In web side, `.js`, `.ts`, `.jsx`, `.tsx` and `.css` are currently supported extensions.
+- If you have some feature request, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues).
 
 ## Demo
 
