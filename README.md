@@ -16,6 +16,18 @@ The communication between React app and React Native app will be also simplified
 
 <img src="./examples/ios.gif" height="500px" /> <img src="./examples/android.gif" height="500px" />
 
+## Features
+
+- Create React app bundle for WebView automatically in build process of React Native
+  - `.js`, `.ts`, `.jsx`, `.tsx` will be packed into one source.
+- Handle communication between React Native and WebView with React hook style
+- Support bundling some assets in web side with ES6 import syntax
+  - `.json` is imported as an object, like require in Node.js.
+  - `.css` is injected to the HTML head of WebView, like [css-loader](https://github.com/webpack-contrib/css-loader).
+  - `.bmp`, `.gif`, `.png`, `.jpg`, `.jpeg`, `.webp` and `.svg` are loaded as base64 encoded url, like [url-loader](https://github.com/webpack-contrib/url-loader).
+
+If you have some feature requests or improvements, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues) or [PR](https://github.com/inokawa/react-native-react-bridge/pulls).
+
 ## Install
 
 ```sh
@@ -56,8 +68,10 @@ import {
   emit,
   useSubscribe,
 } from "react-native-react-bridge/lib/web";
-// Import css is supported
+// Importing css is supported
 import "./example.css";
+// Images are loaded as base64 encoded string
+import image from "./foo.png";
 
 const Root = () => {
   const [data, setData] = useState("");
@@ -69,6 +83,7 @@ const Root = () => {
   });
   return (
     <div>
+      <img src={image} />
       <div>{data}</div>
       <button
         onClick={() => {
@@ -122,11 +137,6 @@ const App = () => {
 ```
 
 4. Start your React Native app!
-
-## Limitations
-
-- In web side, `.js`, `.ts`, `.jsx`, `.tsx`, `.css` and `.json` are currently supported extensions.
-- If you have some feature requests or improvements, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues).
 
 ## Demo
 
