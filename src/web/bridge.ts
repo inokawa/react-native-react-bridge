@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { EVENT_KEY, ROOT_ID, Message } from "../common";
+import { EVENT_KEY, ROOT_ID } from "../common";
+import { Message } from "../types";
 
 export const webViewRender = (root: JSX.Element): string => {
   ReactDOM.render(root, document.getElementById(ROOT_ID));

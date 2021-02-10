@@ -5,6 +5,7 @@ import {
   emit,
   useSubscribe,
 } from 'react-native-react-bridge/lib/web';
+import './example.css';
 
 const style = {
   width: '100vw',

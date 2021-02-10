@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useRef } from "react";
 import WebView, { WebViewProps } from "react-native-webview";
-import { EVENT_KEY, ROOT_ID, Message } from "./common";
+import { EVENT_KEY, ROOT_ID } from "./common";
+import { Message } from "./types";
 
 export const useBridge = <T>(
   app: string,
@@ -9,19 +10,7 @@ export const useBridge = <T>(
   const ref = useRef<WebView>(null);
   const source = useMemo(
     () => ({
-      html: `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-</head>
-<body style="margin: 0 !important;padding: 0 !important;">
-  <div id="${ROOT_ID}"></div>
-  <script type="text/javascript">(function(){${app}})()</script>
-</body>
-</html>
-`,
+      html: app,
     }),
     [app]
   );
