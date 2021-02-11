@@ -33,4 +33,11 @@ describe("isEntryFile", () => {
     const paths = isEntryFile(src, filename);
     expect(paths).toEqual(false);
   });
+
+  it("export default webViewRender(App) (tsx)", () => {
+    const filename = "app-export-default.tsx";
+    const src = readFixture(filename);
+    const paths = isEntryFile(src, filename);
+    expect(paths).toEqual(true);
+  });
 });

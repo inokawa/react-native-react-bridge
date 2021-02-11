@@ -17,6 +17,13 @@ describe("bundle", () => {
     expect(res).toMatchSnapshot();
   });
 
+  it("default (tsx)", async () => {
+    const filename = "app-export-default.tsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
+
   it("with json", async () => {
     const filename = "app-export-default-with-json.jsx";
     const filePath = resolvePath(filename);
