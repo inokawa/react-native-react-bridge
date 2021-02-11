@@ -20,6 +20,7 @@ The communication between React app and React Native app will be also simplified
 
 - Create React app bundle for WebView automatically in build process of React Native
   - `.js`, `.ts`, `.jsx`, `.tsx` will be packed into one source.
+  - NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.
 - Handle communication between React Native and WebView with React hook style
 - Support bundling some assets in web side with ES6 import syntax
   - `.json` is imported as an object, like require in Node.js.
