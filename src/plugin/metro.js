@@ -1,15 +1,16 @@
 import Metro from "metro";
 
 const babelTransformerPath = require.resolve("./transformer");
-const sourceExts = ["js", "ts", "jsx", "tsx"];
+const codeExts = ["js", "ts", "jsx", "tsx"];
+const htmlExts = ["htm", "html", "css"];
 const imageExts = ["bmp", "gif", "png", "jpg", "jpeg", "webp", "svg"];
-const assetExts = [...imageExts, "css"];
+const sourceExts = [...codeExts, ...htmlExts, ...imageExts];
 
 export const bundle = async (filename) => {
   const config = await Metro.loadConfig();
-  config.resolver.sourceExts = [...sourceExts, ...assetExts];
+  config.resolver.sourceExts = sourceExts;
   config.resolver.assetExts = config.resolver.assetExts.filter(
-    (ext) => !assetExts.includes(ext)
+    (ext) => !sourceExts.includes(ext)
   );
   config.transformer.babelTransformerPath = babelTransformerPath;
 

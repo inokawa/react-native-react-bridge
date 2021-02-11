@@ -30,4 +30,11 @@ describe("bundle", () => {
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
   });
+
+  it("with html", async () => {
+    const filename = "app-export-default-with-html.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
 });

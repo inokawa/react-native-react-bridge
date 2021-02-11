@@ -7,6 +7,12 @@ module.exports.transform = async (args) => {
 
   const ext = path.extname(filename);
   switch (ext) {
+    case ".htm":
+    case ".html":
+      return metroTransformer.transform({
+        ...args,
+        src: injectHtml(src),
+      });
     case ".css":
       return metroTransformer.transform({
         ...args,
@@ -50,9 +56,13 @@ module.exports.transform = async (args) => {
   return metroTransformer.transform(args);
 };
 
-const injectCss = (css) => `
+const injectHtml = (src) => {
+  return `export default String.raw\`${src}\``;
+};
+
+const injectCss = (src) => `
 (function () {
-  var css = String.raw\`${css}\`;
+  var css = String.raw\`${src}\`;
   var head = document.head || document.getElementsByTagName("head")[0];
   var style = document.createElement("style");
   style.type = "text/css";
