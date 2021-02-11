@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from "react";
 import WebView, { WebViewProps } from "react-native-webview";
-import { EVENT_KEY, ROOT_ID } from "./common";
+import { EVENT_KEY } from "./common";
 import { Message } from "./types";
 
 export const useBridge = <T>(
