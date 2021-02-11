@@ -21,7 +21,51 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm install
+      - run: npm ci
       - run: npm run tsc
       - run: npm run build
       - run: npm run test
+
+  build-ios:
+    needs: setup
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - run: npm ci
+        working-directory: ./examples/DemoApp
+      - run: xcode-select -p
+        working-directory: ./examples/DemoApp
+
+      - name: Build iOS (debug)
+        run: "xcodebuild \
+          -workspace ios/DemoApp.xcworkspace \
+          -scheme DemoApp \
+          clean archive \
+          -sdk iphoneos \
+          -configuration Debug \
+          -UseModernBuildSystem=NO \
+          -archivePath $PWD/DemoApp \
+          CODE_SIGNING_ALLOWED=NO"
+        working-directory: ./examples/DemoApp
+
+  build-adr:
+    needs: setup
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - run: npm ci
+        working-directory: ./examples/DemoApp
+
+      - name: Build Android apk (debug)
+        run: ./android/gradlew assembleDebug -Dorg.gradle.logging.level=info
+        working-directory: ./examples/DemoApp
