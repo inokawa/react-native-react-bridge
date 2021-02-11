@@ -22,6 +22,9 @@ The communication between React app and React Native app will be also simplified
   - `.js`, `.ts`, `.jsx`, `.tsx` will be packed into one source.
   - NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.
 - Handle communication between React Native and WebView with React hook style
+  - With `useBridge` hook, you can subscribe messages from WebView.
+  - With `useSubscribe` hook, you can subscribe messages from React Native.
+  - `emit` function sends message.
 - Support bundling some assets in web side with ES6 import syntax
   - `.json` is imported as an object, like require in Node.js.
   - `.css` is injected to the HTML head of WebView, like [css-loader](https://github.com/webpack-contrib/css-loader).
