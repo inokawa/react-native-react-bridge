@@ -27,6 +27,7 @@ The communication between React app and React Native app will be also simplified
   - `emit` function sends message.
 - Support bundling some assets in web side with ES6 import syntax
   - `.json` is imported as an object, like require in Node.js.
+  - `.txt` and `.md` are imported as string.
   - `.css` is injected to the HTML head of WebView, like [css-loader](https://github.com/webpack-contrib/css-loader).
   - `.bmp`, `.gif`, `.png`, `.jpg`, `.jpeg`, `.webp` and `.svg` are loaded as base64 encoded url, like [url-loader](https://github.com/webpack-contrib/url-loader).
   - `.htm` and `.html` are loaded as string, which can be rendered with React's dangerouslySetInnerHTML.

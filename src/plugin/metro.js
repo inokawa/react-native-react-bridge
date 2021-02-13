@@ -4,7 +4,8 @@ const babelTransformerPath = require.resolve("./transformer");
 const codeExts = ["js", "ts", "jsx", "tsx"];
 const htmlExts = ["htm", "html", "css"];
 const imageExts = ["bmp", "gif", "png", "jpg", "jpeg", "webp", "svg"];
-const sourceExts = [...codeExts, ...htmlExts, ...imageExts];
+const textExts = ["txt", "md"];
+const sourceExts = [...codeExts, ...htmlExts, ...imageExts, ...textExts];
 
 export const bundle = async (filename) => {
   const config = await Metro.loadConfig();

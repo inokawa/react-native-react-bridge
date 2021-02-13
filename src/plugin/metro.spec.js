@@ -31,6 +31,20 @@ describe("bundle", () => {
     expect(res).toMatchSnapshot();
   });
 
+  it("with txt", async () => {
+    const filename = "app-export-default-with-txt.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
+
+  it("with md", async () => {
+    const filename = "app-export-default-with-md.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
+
   it("with images", async () => {
     const filename = "app-export-default-with-images.jsx";
     const filePath = resolvePath(filename);

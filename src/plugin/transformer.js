@@ -11,12 +11,18 @@ module.exports.transform = async (args) => {
     case ".html":
       return metroTransformer.transform({
         ...args,
-        src: injectHtml(src),
+        src: injectString(src),
       });
     case ".css":
       return metroTransformer.transform({
         ...args,
         src: injectCss(src),
+      });
+    case ".txt":
+    case ".md":
+      return metroTransformer.transform({
+        ...args,
+        src: injectString(src),
       });
     case ".bmp":
       return metroTransformer.transform({
@@ -56,7 +62,7 @@ module.exports.transform = async (args) => {
   return metroTransformer.transform(args);
 };
 
-const injectHtml = (src) => {
+const injectString = (src) => {
   return `export default String.raw\`${src}\``;
 };
 
