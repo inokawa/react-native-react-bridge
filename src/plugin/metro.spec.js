@@ -58,4 +58,11 @@ describe("bundle", () => {
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
   });
+
+  it("with wasm", async () => {
+    const filename = "app-export-default-with-wasm.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
 });

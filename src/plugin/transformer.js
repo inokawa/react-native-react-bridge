@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const { TextEncoder } = require("util");
 const metroTransformer = require("metro-react-native-babel-transformer");
 
 module.exports.transform = async (args) => {
@@ -55,6 +56,11 @@ module.exports.transform = async (args) => {
         ...args,
         src: injectImage(filename, "svg+xml"),
       });
+    case ".wasm":
+      return metroTransformer.transform({
+        ...args,
+        src: injectWasm(src),
+      });
     default:
       break;
   }
@@ -80,4 +86,15 @@ const injectCss = (src) => `
 const injectImage = (filename, ext) => {
   const src = fs.readFileSync(filename, "base64");
   return `export default "data:image/${ext};base64,${src}";`;
+};
+
+const injectWasm = (src) => {
+  const buf = new TextEncoder().encode(src);
+  return `
+export default (function () {
+  const wasmModule = new WebAssembly.Module(Uint8Array.from([${buf.toString()}]));
+  const instance = new WebAssembly.Instance(wasmModule);
+  return instance;
+})();
+`;
 };
