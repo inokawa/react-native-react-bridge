@@ -25,7 +25,7 @@ The communication between React app and React Native app will be also simplified
   - With `useBridge` hook, you can subscribe messages from WebView.
   - With `useSubscribe` hook, you can subscribe messages from React Native.
   - `emit` function sends message.
-- Support bundling some assets in web side with ES6 import syntax
+- Support bundling some assets in web side with [ES6 import syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
   - `.json` is imported as an object, like require in Node.js.
   - `.txt` and `.md` are imported as string, like [raw-loader](https://github.com/webpack-contrib/raw-loader).
   - `.css` is injected to the HTML head of WebView, like [css-loader](https://github.com/webpack-contrib/css-loader).
