@@ -68,13 +68,15 @@ module.exports.transform = async (args) => {
   return metroTransformer.transform(args);
 };
 
+const escape = (src) => src.replace(/`/g, "\\`");
+
 const injectString = (src) => {
-  return `export default String.raw\`${src.replace(/`/g, "\\`")}\``;
+  return `export default String.raw\`${escape(src)}\``;
 };
 
 const injectCss = (src) => `
 (function () {
-  var css = String.raw\`${src}\`;
+  var css = String.raw\`${escape(src)}\`;
   var head = document.head || document.getElementsByTagName("head")[0];
   var style = document.createElement("style");
   style.type = "text/css";
