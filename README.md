@@ -31,7 +31,7 @@ The communication between React app and React Native app will be also simplified
   - `.css` is injected to the HTML head of WebView, like [css-loader](https://github.com/webpack-contrib/css-loader).
   - `.bmp`, `.gif`, `.png`, `.jpg`, `.jpeg`, `.webp` and `.svg` are loaded as base64 encoded url, like [url-loader](https://github.com/webpack-contrib/url-loader).
   - `.htm` and `.html` are loaded as string, which can be rendered with React's dangerouslySetInnerHTML.
-  - `.wasm` is imported as [WebAssembly instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance), so you can call its methods like `foo.exports.bar();`.
+  - `.wasm` is imported like [Node.js](https://nodejs.org/api/esm.html#esm_wasm_modules), which is compatible with [ES Module Integration Proposal for WebAssembly](https://github.com/WebAssembly/esm-integration).
 
 If you have some feature requests or improvements, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues) or [PR](https://github.com/inokawa/react-native-react-bridge/pulls).
 

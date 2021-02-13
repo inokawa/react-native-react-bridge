@@ -93,10 +93,10 @@ const injectImage = (filename, ext) => {
 const injectWasm = (src) => {
   const buf = new TextEncoder().encode(src);
   return `
-export default (function () {
+module.exports = (function () {
   const wasmModule = new WebAssembly.Module(Uint8Array.from([${buf.toString()}]));
   const instance = new WebAssembly.Instance(wasmModule);
-  return instance;
+  return instance.exports;
 })();
 `;
 };
