@@ -63,7 +63,7 @@ module.exports.transform = async (args) => {
 };
 
 const injectString = (src) => {
-  return `export default String.raw\`${src}\``;
+  return `export default String.raw\`${src.replace(/`/g, "\\`")}\``;
 };
 
 const injectCss = (src) => `
