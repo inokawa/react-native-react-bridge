@@ -53,7 +53,8 @@
     "metro",
     "webview",
     "html",
-    "react-hooks"
+    "react-hooks",
+    "webassembly"
   ],
   "author": "inokawa <stratoooo-taster@yahoo.co.jp> (https://github.com/inokawa/)",
   "license": "MIT",
