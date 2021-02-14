@@ -6,7 +6,10 @@ An easy way to integrate your [React](https://github.com/facebook/react) app int
 
 ## Why?
 
-Run React app in React Native app is logically possible if you run your web code in WebView using [react-native-webview](https://github.com/react-native-webview/react-native-webview).
+If you'd like to run your React web app in React Native, rewriting it for React Native or using [react-native-web](https://github.com/necolas/react-native-web) is preferred way in most cases.
+But sometimes rewriting is overkill, when you are just prototyping, or when the app includes something not available on React Native, like rich text editor with contenteditable or complicated logic with WebAssembly.
+
+So how we run React app in React Native app as it is? It's logically possible if you run your web code in WebView using [react-native-webview](https://github.com/react-native-webview/react-native-webview).
 However bundling React code with React Native is troublesome and implementing communication between React Native and WebView is so hard.
 
 This library gives a bridge to make it easy.
