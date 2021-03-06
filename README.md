@@ -64,6 +64,7 @@ module.exports = {
     babelTransformerPath: require.resolve('react-native-react-bridge/lib/plugin'),
     ...
   },
+  ...
 };
 ```
 
