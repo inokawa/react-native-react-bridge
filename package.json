@@ -21,7 +21,7 @@
     "@babel/preset-env": "7.11.5",
     "@babel/traverse": "7.12.12",
     "@rollup/plugin-typescript": "8.1.1",
-    "@types/node": "14.14.22",
+    "@types/node": "14.14.34",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
     "babel-jest": "26.6.3",
