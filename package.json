@@ -1,6 +1,6 @@
 {
   "name": "react-native-react-bridge",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "An easy way to integrate your React app into React Native app with WebView.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -15,7 +15,6 @@
     "tsc:d": "tsc -p . --outDir lib -d --emitDeclarationOnly",
     "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/preset-env": "7.11.5",
