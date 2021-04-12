@@ -1,7 +1,7 @@
 import Metro from "metro";
 
 const babelTransformerPath = require.resolve("./transformer");
-const codeExts = ["js", "ts", "jsx", "tsx"];
+const codeExts = ["js", "ts", "jsx", "tsx", "mjs"];
 const htmlExts = ["htm", "html", "css"];
 const imageExts = ["bmp", "gif", "png", "jpg", "jpeg", "webp", "svg"];
 const textExts = ["txt", "md"];
