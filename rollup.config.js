@@ -35,6 +35,20 @@ export default [
     plugins: [typescript()],
   },
   {
+    input: "src/web/preact.ts",
+    output: [
+      {
+        file: `${mainDir}/web/preact.js`,
+        format: "cjs",
+      },
+      {
+        file: `${moduleDir}/web/preact.mjs`,
+        format: "es",
+      },
+    ],
+    plugins: [typescript()],
+  },
+  {
     input: "src/plugin/index.js",
     output: [
       {

@@ -1,1 +1,1 @@
-export { webViewRender, emit, useSubscribe } from "./bridge";
+export { webViewRender, emit, useSubscribe } from "./react";
