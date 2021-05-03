@@ -40,4 +40,11 @@ describe("isEntryFile", () => {
     const paths = isEntryFile(src, filename);
     expect(paths).toEqual(true);
   });
+
+  it("export default webViewRender(App) (preact)", () => {
+    const filename = "app-export-default-preact.jsx";
+    const src = readFixture(filename);
+    const paths = isEntryFile(src, filename);
+    expect(paths).toEqual(true);
+  });
 });
