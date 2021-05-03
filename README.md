@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/react-native-react-bridge) ![check](https://github.com/inokawa/react-native-react-bridge/workflows/check/badge.svg)
 
-An easy way to integrate your [React](https://github.com/facebook/react) app into [React Native](https://github.com/facebook/react-native) app with WebView.
+An easy way to integrate your [React](https://github.com/facebook/react) (or [Preact](https://github.com/preactjs/preact)) app into [React Native](https://github.com/facebook/react-native) app with WebView.
 
 ## Why?
 
@@ -21,7 +21,7 @@ The communication between React app and React Native app will be also simplified
 
 ## Features
 
-- Create React app bundle for WebView automatically in build process of React Native
+- Create React (or Preact) app bundle for WebView automatically in build process of React Native
   - `.js`, `.ts`, `.jsx`, `.tsx` and `.mjs` will be packed into one source.
   - NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.
 - Handle communication between React Native and WebView with React hook style
@@ -41,16 +41,20 @@ If you have some feature requests or improvements, please create a [issue](https
 ## Install
 
 ```sh
-npm install react-native-react-bridge
+npm install react-native-react-bridge react-native-webview
 
-# These are used to render React app in WebView
-npm install react-dom react-native-webview
+# Necessary only if you render React app in WebView
+npm install react-dom
+
+# Necessary only if you render Preact app in WebView
+npm install preact
 ```
 
 ### Requirements
 
-- react 16.8+
-- react-native 0.60+
+- react >= 16.8
+- react-native >= 0.60
+- (preact >= 10.0)
 
 ## Usage
 
@@ -68,7 +72,10 @@ module.exports = {
 };
 ```
 
-2. Make entry file for React app.
+2. Make entry file for web app.
+
+- If you use React in web, import modules from `react-native-react-bridge/lib/web` and `react`.
+- If you use Preact in web, import modules from `react-native-react-bridge/lib/web/preact` and `preact`.
 
 ```jsx
 // WebApp.js

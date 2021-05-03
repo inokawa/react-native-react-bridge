@@ -1,7 +1,7 @@
 {
   "name": "react-native-react-bridge",
   "version": "0.4.3",
-  "description": "An easy way to integrate your React app into React Native app with WebView.",
+  "description": "An easy way to integrate your React (or Preact) app into React Native app with WebView.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
@@ -47,9 +47,10 @@
     "url": "git+https://github.com/inokawa/react-native-react-bridge.git"
   },
   "keywords": [
-    "react",
     "react-native",
+    "react",
     "react-dom",
+    "preact",
     "metro",
     "webview",
     "html",
