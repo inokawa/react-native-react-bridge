@@ -68,14 +68,20 @@ module.exports = {
     babelTransformerPath: require.resolve('react-native-react-bridge/lib/plugin'),
     ...
   },
+  rnrb: {
+    // Set `true` if you use Preact in web side.
+    // This will alias imports from `react` and `react-dom` to `preact/compat` automatically.
+    preact: true
+  },
   ...
 };
 ```
 
 2. Make entry file for web app.
 
-- If you use React in web, import modules from `react-native-react-bridge/lib/web` and `react`.
-- If you use Preact in web, import modules from `react-native-react-bridge/lib/web/preact` and `preact`.
+- If you use React in web, import modules from `react` and `react-native-react-bridge/lib/web`.
+- If you use Preact in web, import modules from `preact` and `react-native-react-bridge/lib/web/preact`.
+- If you use Preact in web but with React aliases, import modules from `react` and `react-native-react-bridge/lib/web`.
 
 ```jsx
 // WebApp.js
