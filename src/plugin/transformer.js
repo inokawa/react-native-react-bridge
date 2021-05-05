@@ -3,8 +3,34 @@ const fs = require("fs");
 const { TextEncoder } = require("util");
 const metroTransformer = require("metro-react-native-babel-transformer");
 
+let metroOptions = {};
+try {
+  const metroConfigPath = path.join(process.cwd(), "metro.config.js");
+  metroOptions = require(metroConfigPath).rnrb || {};
+} catch {
+  // NOP
+}
+
 module.exports.transform = async (args) => {
-  const { filename, src, options } = args;
+  const { filename, src, options, plugins } = args;
+  if (metroOptions.preact === true) {
+    args = {
+      ...args,
+      plugins: [
+        ...plugins,
+        [
+          "module-resolver",
+          {
+            root: ["."],
+            alias: {
+              react: "preact/compat",
+              "react-dom": "preact/compat",
+            },
+          },
+        ],
+      ],
+    };
+  }
 
   const ext = path.extname(filename);
   switch (ext) {

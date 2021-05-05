@@ -15,6 +15,9 @@
     "tsc:d": "tsc -p . --outDir lib -d --emitDeclarationOnly",
     "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
   },
+  "dependencies": {
+    "babel-plugin-module-resolver": "4.1.0"
+  },
   "devDependencies": {
     "@babel/core": "7.14.0",
     "@babel/preset-env": "7.14.0",
