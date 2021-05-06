@@ -3,17 +3,8 @@ import WebView, { WebViewProps } from "react-native-webview";
 import { EVENT_KEY } from "./common";
 import { Message } from "./types";
 
-export const useBridge = <T>(
-  app: string,
-  onSubscribe: (message: Message<T>) => void
-) => {
+export const useBridge = <T>(onSubscribe: (message: Message<T>) => void) => {
   const ref = useRef<WebView>(null);
-  const source = useMemo(
-    () => ({
-      html: app,
-    }),
-    [app]
-  );
   const onMessage: WebViewProps["onMessage"] = useCallback(
     (event: any) => {
       try {
@@ -42,5 +33,5 @@ return true;
     },
     [ref]
   );
-  return { ref, source, onMessage, emit };
+  return { ref, onMessage, emit };
 };
