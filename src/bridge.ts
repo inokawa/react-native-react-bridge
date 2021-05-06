@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useRef } from "react";
 import WebView, { WebViewProps } from "react-native-webview";
 import { EVENT_KEY } from "./common";
 import { Message } from "./types";

@@ -1,9 +1,9 @@
 import { EVENT_KEY, ROOT_ID } from "../common";
 import { Message } from "../types";
 
-export const buildRender = <T>(render: any) => {
+export const buildRender = <T>(render: (...args: any[]) => any) => {
   return (root: T): string => {
-    render(root, document.getElementById(ROOT_ID) as any);
+    render(root, document.getElementById(ROOT_ID));
     return ""; // dummy
   };
 };
