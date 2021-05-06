@@ -41,7 +41,6 @@
   },
   "peerDependencies": {
     "react": ">= 16.8.0",
-    "react-dom": ">= 16.8.0",
     "react-native": ">= 0.60.0",
     "react-native-webview": ">= 9.0.0"
   },
