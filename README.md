@@ -58,7 +58,9 @@ npm install preact
 
 ## Usage
 
-1. Fix `metro.config.js` to use babelTransformer from this library.
+### 1. Fix `metro.config.js` to use babelTransformer from this library.
+
+#### React Native
 
 ```javascript
 module.exports = {
@@ -77,7 +79,25 @@ module.exports = {
 };
 ```
 
-2. Make entry file for web app.
+#### Expo
+
+```javascript
+const { getDefaultConfig } = require("expo/metro-config");
+
+const config = getDefaultConfig(__dirname);
+
+module.exports = {
+  ...config,
+  transformer: {
+    ...config.transformer,
+    babelTransformerPath: require.resolve(
+      "react-native-react-bridge/lib/plugin"
+    ),
+  },
+};
+```
+
+### 2. Make entry file for web app.
 
 - If you use React in web, import modules from `react` and `react-native-react-bridge/lib/web`.
 - If you use Preact in web, import modules from `preact` and `react-native-react-bridge/lib/web/preact`.
@@ -126,7 +146,7 @@ const Root = () => {
 export default webViewRender(<Root />);
 ```
 
-3. Use the entry file in your React Native app with WebView.
+### 3. Use the entry file in your React Native app with WebView.
 
 ```jsx
 // App.js
@@ -160,11 +180,13 @@ const App = () => {
 };
 ```
 
-4. Start your React Native app!
+### 4. Start your React Native app!
 
 ## Demo
 
 This repository includes demo app.
+
+### React Native
 
 Before running this app, please prepare environment for React Native (https://reactnative.dev/docs/environment-setup).
 
@@ -173,4 +195,13 @@ git clone git@github.com:inokawa/react-native-react-bridge.git
 cd examples/DemoApp
 npm install
 npm run ios # or npm run android
+```
+
+### Expo
+
+```sh
+git clone git@github.com:inokawa/react-native-react-bridge.git
+cd examples/DemoAppExpo
+yarn
+expo start
 ```

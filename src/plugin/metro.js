@@ -23,7 +23,7 @@ export const bundle = async (filename) => {
 
   const { code, map } = await Metro.runBuild(config, {
     entry: filename,
-    platform: "web",
+    platform: "rnrb",
     minify: true,
   });
   return code;
