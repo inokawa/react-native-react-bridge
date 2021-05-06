@@ -14,7 +14,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.4",
-    "react-native-react-bridge": "0.6.0",
+    "react-native-react-bridge": "0.6.1",
     "react-native-webview": "11.0.2"
   },
   "devDependencies": {
