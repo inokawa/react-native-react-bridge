@@ -158,8 +158,7 @@ import webApp from "./WebApp";
 
 const App = () => {
   // useBridge hook create props for WebView and handle communication
-  // 1st argument is the source code of React app
-  // 2nd argument is callback to receive message from React
+  // The argument is callback to receive message from React
   const { ref, onMessage, emit } = useBridge((message) => {
     // emit sends message to React
     //   type: event name
@@ -173,6 +172,7 @@ const App = () => {
     <WebView
       // ref, source and onMessage must be passed to react-native-webview
       ref={ref}
+      // Pass the source code of React app
       source={{ html: webApp }}
       onMessage={onMessage}
     />
