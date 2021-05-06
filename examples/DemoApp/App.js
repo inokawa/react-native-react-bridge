@@ -21,7 +21,7 @@ import webApp from './WebApp';
 
 const App = () => {
   const [data, setData] = useState('This is React Native');
-  const {ref, source, onMessage, emit} = useBridge(webApp, (message) => {
+  const {ref, onMessage, emit} = useBridge((message) => {
     if (message.type === 'hi') {
       setData(message.data);
     }
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
-        <WebView ref={ref} source={source} onMessage={onMessage} />
+        <WebView ref={ref} source={{html: webApp}} onMessage={onMessage} />
       </View>
       <View style={styles.bottom}>
         <TextInput
