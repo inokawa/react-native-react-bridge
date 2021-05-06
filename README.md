@@ -166,6 +166,8 @@ const App = () => {
 
 This repository includes demo app.
 
+### React Native
+
 Before running this app, please prepare environment for React Native (https://reactnative.dev/docs/environment-setup).
 
 ```sh
@@ -173,4 +175,13 @@ git clone git@github.com:inokawa/react-native-react-bridge.git
 cd examples/DemoApp
 npm install
 npm run ios # or npm run android
+```
+
+### Expo
+
+```sh
+git clone git@github.com:inokawa/react-native-react-bridge.git
+cd examples/DemoAppExpo
+yarn
+expo start
 ```
