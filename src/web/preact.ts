@@ -1,8 +1,8 @@
 import { useEffect } from "preact/compat";
-import { render } from "preact";
+import { render, ComponentChild } from "preact";
 import { buildRender, buildUseSubscribe } from "./bridge";
 
-export const webViewRender = buildRender(render);
+export const webViewRender = buildRender<ComponentChild>(render);
 
 export { emit } from "./bridge";
 
