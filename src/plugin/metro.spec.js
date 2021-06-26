@@ -66,6 +66,13 @@ describe("bundle", () => {
     expect(res).toMatchSnapshot();
   });
 
+  it("with backticks", async () => {
+    const filename = "app-export-default-with-backticks.jsx";
+    const filePath = resolvePath(filename);
+    const res = await bundle(filePath);
+    expect(res).toMatchSnapshot();
+  });
+
   it("default (preact)", async () => {
     const filename = "app-export-default-preact.jsx";
     const filePath = resolvePath(filename);

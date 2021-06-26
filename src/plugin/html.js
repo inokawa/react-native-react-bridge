@@ -1,7 +1,9 @@
 import { ROOT_ID } from "../common";
 
+const escape = (src) => src.replace(/`/g, "\\`");
+
 export const createContent = (js) =>
-  `export default String.raw\`${wrapByHtml(js)}\`;`;
+  `export default String.raw\`${escape(wrapByHtml(js))}\`;`;
 
 const wrapByHtml = (js) => `
 <!DOCTYPE html>
