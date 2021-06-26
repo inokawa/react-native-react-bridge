@@ -11,4 +11,10 @@ describe("createContent", () => {
     const src = readFixture(filename);
     expect(createContent(src)).toMatchSnapshot();
   });
+
+  it("export default webViewRender(App) with backticks", () => {
+    const filename = "app-export-default-with-backticks.jsx";
+    const src = readFixture(filename);
+    expect(createContent(src)).toMatchSnapshot();
+  });
 });
