@@ -22,7 +22,7 @@ The communication between React app and React Native app will be also simplified
 ## Features
 
 - Create React (or Preact) app bundle for WebView automatically in build process of React Native
-  - `.js`, `.ts`, `.jsx`, `.tsx` and `.mjs` will be packed into one source.
+  - `.js`, `.ts`, `.jsx`, `.tsx`, `.mjs` and `.cjs` will be packed into one source.
   - NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.
 - Handle communication between React Native and WebView with React hook style
   - With `useBridge` hook, you can subscribe messages from WebView.
