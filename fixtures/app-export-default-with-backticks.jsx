@@ -5,6 +5,7 @@ import "./example.css";
 
 const text = "foo `bar`";
 console.log(text);
+console.log(`baz`);
 
 const App = () => {
   return <Comp />;
