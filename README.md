@@ -182,6 +182,14 @@ const App = () => {
 
 ### 4. Start your React Native app!
 
+## FAQs
+
+### My webview displays a blank page.
+
+react-native-webview has some ways to show errors occurred in webview. This may be helpful to troubleshoot it.
+
+https://github.com/react-native-webview/react-native-webview/blob/master/docs/Reference.md#onerror
+
 ## Demo
 
 This repository includes demo app.
