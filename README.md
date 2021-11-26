@@ -201,8 +201,8 @@ Before running this app, please prepare environment for React Native (https://re
 ```sh
 git clone git@github.com:inokawa/react-native-react-bridge.git
 cd examples/DemoApp
-npm install
-npm run ios # or npm run android
+yarn
+yarn ios # or yarn android
 ```
 
 ### Expo

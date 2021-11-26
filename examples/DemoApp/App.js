@@ -21,7 +21,7 @@ import webApp from './WebApp';
 
 const App = () => {
   const [data, setData] = useState('This is React Native');
-  const {ref, onMessage, emit} = useBridge((message) => {
+  const {ref, onMessage, emit} = useBridge(message => {
     if (message.type === 'hi') {
       setData(message.data);
     }
@@ -35,7 +35,7 @@ const App = () => {
       <View style={styles.bottom}>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setData(text)}
+          onChangeText={text => setData(text)}
           value={data}
         />
         <Pressable
