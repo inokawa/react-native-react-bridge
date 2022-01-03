@@ -30,7 +30,12 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
-        <WebView ref={ref} source={{html: webApp}} onMessage={onMessage} />
+        <WebView
+          ref={ref}
+          source={{html: webApp}}
+          onMessage={onMessage}
+          onError={console.log}
+        />
       </View>
       <View style={styles.bottom}>
         <TextInput
