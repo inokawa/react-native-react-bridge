@@ -1289,7 +1289,15 @@ __r(0);})()</script>
           "type": "ExpressionStatement",
         },
       ],
-      "directives": Array [],
+      "directives": Array [
+        Object {
+          "type": "Directive",
+          "value": Object {
+            "type": "DirectiveLiteral",
+            "value": "use strict",
+          },
+        },
+      ],
       "end": 148584,
       "innerComments": undefined,
       "interpreter": null,
@@ -2613,7 +2621,15 @@ __r(0);})()</script>
           "type": "ExpressionStatement",
         },
       ],
-      "directives": Array [],
+      "directives": Array [
+        Object {
+          "type": "Directive",
+          "value": Object {
+            "type": "DirectiveLiteral",
+            "value": "use strict",
+          },
+        },
+      ],
       "end": 148630,
       "innerComments": undefined,
       "interpreter": null,
@@ -3335,7 +3351,15 @@ __r(0);})()</script>
           "type": "ExpressionStatement",
         },
       ],
-      "directives": Array [],
+      "directives": Array [
+        Object {
+          "type": "Directive",
+          "value": Object {
+            "type": "DirectiveLiteral",
+            "value": "use strict",
+          },
+        },
+      ],
       "end": 139066,
       "innerComments": undefined,
       "interpreter": null,
