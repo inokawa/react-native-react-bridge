@@ -10,6 +10,7 @@ const sourceExts = [
   ...htmlExts,
   ...imageExts,
   ...textExts,
+  "json",
   "wasm",
 ];
 
