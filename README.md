@@ -56,6 +56,12 @@ npm install preact
 - react-native >= 0.60
 - (preact >= 10.0)
 
+### Supported react-native versions
+
+| react-native-react-bridge | react-native |
+| ------------------------- | ------------ |
+| 0.0.0 - 0.8.1             | <=0.63.4     |
+
 ## Usage
 
 ### 1. Fix `metro.config.js` to use babelTransformer from this library.
