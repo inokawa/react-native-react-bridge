@@ -6,6 +6,7 @@ import {
 } from 'react-native-react-bridge/lib/web';
 import './example.css';
 import png from './Octocat.png';
+import {Button} from './button';
 
 const style = {
   width: '100vw',
@@ -16,7 +17,7 @@ const style = {
 
 const Root = () => {
   const [data, setData] = useState('This is Web');
-  useSubscribe((message) => {
+  useSubscribe(message => {
     if (message.type === 'hello') {
       setData(message.data);
     }
@@ -26,11 +27,11 @@ const Root = () => {
       <div>
         <img src={png} width={100} height={'auto'} />
       </div>
-      <textarea value={data} onChange={(e) => setData(e.target.value)} />
+      <textarea value={data} onChange={e => setData(e.target.value)} />
       <div>
-        <button onClick={() => emit({type: 'hi', data: data})}>
+        <Button onClick={() => emit({type: 'hi', data: data})}>
           send to React Native
-        </button>
+        </Button>
       </div>
     </div>
   );
