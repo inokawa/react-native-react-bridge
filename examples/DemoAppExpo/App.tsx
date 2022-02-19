@@ -8,12 +8,12 @@ import {
   Pressable,
 } from "react-native";
 import WebView from "react-native-webview";
-import { useBridge } from "react-native-react-bridge";
+import { useWebViewMessage } from "react-native-react-bridge";
 import webApp from "./WebApp";
 
 export default function App() {
   const [data, setData] = useState("This is React Native");
-  const { ref, onMessage, emit } = useBridge<string>((message) => {
+  const { ref, onMessage, emit } = useWebViewMessage<string>((message) => {
     if (message.type === "hi") {
       setData(message.data);
     }

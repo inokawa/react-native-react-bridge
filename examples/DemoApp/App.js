@@ -16,12 +16,12 @@ import {
   TextInput,
 } from 'react-native';
 import WebView from 'react-native-webview';
-import {useBridge} from 'react-native-react-bridge';
+import {useWebViewMessage} from 'react-native-react-bridge';
 import webApp from './WebApp';
 
 const App = () => {
   const [data, setData] = useState('This is React Native');
-  const {ref, onMessage, emit} = useBridge(message => {
+  const {ref, onMessage, emit} = useWebViewMessage(message => {
     if (message.type === 'hi') {
       setData(message.data);
     }

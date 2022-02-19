@@ -6760,10 +6760,10 @@ react-native-gesture-handler@~1.10.2:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-react-bridge@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-react-bridge/-/react-native-react-bridge-0.7.0.tgz#5c84dcace6107174ea33b37f0e2326fd76c2209b"
-  integrity sha512-lsmtfFzp0IUKRv+oCGlAFF+KAQ7FtraF7agZDa+LiEYX1BFNmvlF7X2Gt6jvIbmtTQ7udorirpDm9ll/Ww+vog==
+react-native-react-bridge@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-react-bridge/-/react-native-react-bridge-0.10.0.tgz#47d9a62ef7d9b41c247086894d5c7905ef0844c0"
+  integrity sha512-sdVI5rti7nQOekpry7hM+VtFVk+Bs0nZ1QZpIPoqW14MK6HvKFzVhERUc3kX7303E7mMO0idB+BmaFZ8PpPSPQ==
   dependencies:
     babel-plugin-module-resolver "4.1.0"
 

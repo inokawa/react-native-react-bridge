@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   webViewRender,
   emit,
-  useSubscribe,
+  useNativeMessage,
 } from "react-native-react-bridge/lib/web";
 import "./example.css";
 
@@ -15,7 +15,7 @@ const style = {
 
 const Root = () => {
   const [data, setData] = useState("This is Web");
-  useSubscribe<string>((message) => {
+  useNativeMessage<string>((message) => {
     if (message.type === "hello") {
       setData(message.data);
     }
