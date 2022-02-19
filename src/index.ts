@@ -1,2 +1,2 @@
 export type { Message } from "./types";
-export { useBridge } from "./bridge";
+export { useWebViewMessage } from "./bridge";

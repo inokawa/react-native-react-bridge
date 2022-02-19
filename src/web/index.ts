@@ -1,1 +1,1 @@
-export { webViewRender, emit, useSubscribe } from "./react";
+export { webViewRender, emit, useNativeMessage } from "./react";

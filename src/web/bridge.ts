@@ -12,7 +12,7 @@ export const emit = <T>(message: Message<T>) => {
   (window as any).ReactNativeWebView.postMessage(JSON.stringify(message));
 };
 
-export const buildUseSubscribe = (
+export const buildUseNativeMessage = (
   useEffect: (cb: () => void, deps: any[]) => void
 ) => {
   return <T>(onSubscribe: (message: Message<T>) => void) => {

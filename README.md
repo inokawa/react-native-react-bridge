@@ -25,8 +25,8 @@ The communication between React app and React Native app will be also simplified
   - `.js`, `.ts`, `.jsx`, `.tsx`, `.mjs` and `.cjs` will be packed into one source.
   - NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.
 - Handle communication between React Native and WebView with React hook style
-  - With `useBridge` hook, you can subscribe messages from WebView.
-  - With `useSubscribe` hook, you can subscribe messages from React Native.
+  - With `useWebViewMessage` hook, you can subscribe messages from WebView.
+  - With `useNativeMessage` hook, you can subscribe messages from React Native.
   - `emit` function sends message.
 - Support bundling some assets in web side with [ES6 import syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
   - `.json` is imported as an object, like require in Node.js.
@@ -117,7 +117,7 @@ import React, { useState } from "react";
 import {
   webViewRender,
   emit,
-  useSubscribe,
+  useNativeMessage,
 } from "react-native-react-bridge/lib/web";
 // Importing css is supported
 import "./example.css";
@@ -126,8 +126,8 @@ import image from "./foo.png";
 
 const Root = () => {
   const [data, setData] = useState("");
-  // useSubscribe hook receives message from React Native
-  useSubscribe((message) => {
+  // useNativeMessage hook receives message from React Native
+  useNativeMessage((message) => {
     if (message.type === "success") {
       setData(message.data);
     }
@@ -160,13 +160,13 @@ export default webViewRender(<Root />);
 
 import React from "react";
 import WebView from "react-native-webview";
-import { useBridge } from "react-native-react-bridge";
+import { useWebViewMessage } from "react-native-react-bridge";
 import webApp from "./WebApp";
 
 const App = () => {
-  // useBridge hook create props for WebView and handle communication
+  // useWebViewMessage hook create props for WebView and handle communication
   // The argument is callback to receive message from React
-  const { ref, onMessage, emit } = useBridge((message) => {
+  const { ref, onMessage, emit } = useWebViewMessage((message) => {
     // emit sends message to React
     //   type: event name
     //   data: some data which will be serialized by JSON.stringify

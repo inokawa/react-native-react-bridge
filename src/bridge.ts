@@ -6,7 +6,9 @@ import WebView, {
 import { EVENT_KEY } from "./common";
 import { Message } from "./types";
 
-export const useBridge = <T>(onSubscribe: (message: Message<T>) => void) => {
+export const useWebViewMessage = <T>(
+  onSubscribe: (message: Message<T>) => void
+) => {
   const ref = useRef<WebView>(null);
   const onMessage: WebViewProps["onMessage"] = useCallback(
     (event: WebViewMessageEvent) => {
