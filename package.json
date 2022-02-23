@@ -22,7 +22,7 @@
     "@babel/core": "7.14.8",
     "@babel/preset-env": "7.14.8",
     "@babel/traverse": "7.14.8",
-    "@rollup/plugin-typescript": "8.2.5",
+    "@rollup/plugin-typescript": "8.3.1",
     "@types/node": "15.0.1",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
