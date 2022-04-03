@@ -11,12 +11,14 @@ Object {
     "loc": Object {
       "end": Object {
         "column": 2,
+        "index": 148588,
         "line": 29,
       },
       "filename": undefined,
       "identifierName": undefined,
       "start": Object {
         "column": 0,
+        "index": 0,
         "line": 1,
       },
     },
@@ -1193,12 +1195,14 @@ __r(0);})()</script>
                   "loc": Object {
                     "end": Object {
                       "column": 25,
+                      "index": 25,
                       "line": 1,
                     },
                     "filename": undefined,
                     "identifierName": undefined,
                     "start": Object {
                       "column": 15,
+                      "index": 15,
                       "line": 1,
                     },
                   },
@@ -1209,12 +1213,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 21,
+                        "index": 21,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "String",
                       "start": Object {
                         "column": 15,
+                        "index": 15,
                         "line": 1,
                       },
                     },
@@ -1230,12 +1236,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 25,
+                        "index": 25,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "raw",
                       "start": Object {
                         "column": 22,
+                        "index": 22,
                         "line": 1,
                       },
                     },
@@ -1305,12 +1313,14 @@ __r(0);})()</script>
       "loc": Object {
         "end": Object {
           "column": 2,
+          "index": 148588,
           "line": 29,
         },
         "filename": undefined,
         "identifierName": undefined,
         "start": Object {
           "column": 0,
+          "index": 0,
           "line": 1,
         },
       },
@@ -1343,12 +1353,14 @@ Object {
     "loc": Object {
       "end": Object {
         "column": 2,
+        "index": 148634,
         "line": 29,
       },
       "filename": undefined,
       "identifierName": undefined,
       "start": Object {
         "column": 0,
+        "index": 0,
         "line": 1,
       },
     },
@@ -2525,12 +2537,14 @@ __r(0);})()</script>
                   "loc": Object {
                     "end": Object {
                       "column": 25,
+                      "index": 25,
                       "line": 1,
                     },
                     "filename": undefined,
                     "identifierName": undefined,
                     "start": Object {
                       "column": 15,
+                      "index": 15,
                       "line": 1,
                     },
                   },
@@ -2541,12 +2555,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 21,
+                        "index": 21,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "String",
                       "start": Object {
                         "column": 15,
+                        "index": 15,
                         "line": 1,
                       },
                     },
@@ -2562,12 +2578,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 25,
+                        "index": 25,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "raw",
                       "start": Object {
                         "column": 22,
+                        "index": 22,
                         "line": 1,
                       },
                     },
@@ -2637,12 +2655,14 @@ __r(0);})()</script>
       "loc": Object {
         "end": Object {
           "column": 2,
+          "index": 148634,
           "line": 29,
         },
         "filename": undefined,
         "identifierName": undefined,
         "start": Object {
           "column": 0,
+          "index": 0,
           "line": 1,
         },
       },
@@ -2675,12 +2695,14 @@ Object {
     "loc": Object {
       "end": Object {
         "column": 2,
+        "index": 139070,
         "line": 29,
       },
       "filename": undefined,
       "identifierName": undefined,
       "start": Object {
         "column": 0,
+        "index": 0,
         "line": 1,
       },
     },
@@ -3255,12 +3277,14 @@ __r(0);})()</script>
                   "loc": Object {
                     "end": Object {
                       "column": 25,
+                      "index": 25,
                       "line": 1,
                     },
                     "filename": undefined,
                     "identifierName": undefined,
                     "start": Object {
                       "column": 15,
+                      "index": 15,
                       "line": 1,
                     },
                   },
@@ -3271,12 +3295,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 21,
+                        "index": 21,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "String",
                       "start": Object {
                         "column": 15,
+                        "index": 15,
                         "line": 1,
                       },
                     },
@@ -3292,12 +3318,14 @@ __r(0);})()</script>
                     "loc": Object {
                       "end": Object {
                         "column": 25,
+                        "index": 25,
                         "line": 1,
                       },
                       "filename": undefined,
                       "identifierName": "raw",
                       "start": Object {
                         "column": 22,
+                        "index": 22,
                         "line": 1,
                       },
                     },
@@ -3367,12 +3395,14 @@ __r(0);})()</script>
       "loc": Object {
         "end": Object {
           "column": 2,
+          "index": 139070,
           "line": 29,
         },
         "filename": undefined,
         "identifierName": undefined,
         "start": Object {
           "column": 0,
+          "index": 0,
           "line": 1,
         },
       },
