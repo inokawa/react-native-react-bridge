@@ -12,8 +12,7 @@
     "build": "rollup -c",
     "test": "jest",
     "tsc": "tsc -p . --noEmit",
-    "tsc:d": "tsc -p ./tsconfig-build.json --outDir lib -d --emitDeclarationOnly",
-    "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
+    "prepublishOnly": "rimraf lib && npm run build"
   },
   "dependencies": {
     "babel-plugin-module-resolver": "4.1.0"

@@ -18,7 +18,14 @@ export default [
         format: "es",
       },
     ],
-    plugins: [typescript()],
+    plugins: [
+      typescript({
+        tsconfig: "./tsconfig.json",
+        outDir: ".",
+        declaration: true,
+        exclude: ["src/**/*.spec.*"],
+      }),
+    ],
   },
   {
     input: "src/web/index.ts",
