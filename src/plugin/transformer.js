@@ -25,6 +25,7 @@ module.exports.transform = async (args) => {
             alias: {
               react: "preact/compat",
               "react-dom": "preact/compat",
+              "react/jsx-runtime": "preact/jsx-runtime",
             },
           },
         ],
