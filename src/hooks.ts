@@ -1,10 +1,8 @@
 import { useCallback, useRef } from "react";
-import WebView, {
-  WebViewMessageEvent,
-  WebViewProps,
-} from "react-native-webview";
+import type WebView from "react-native-webview";
+import type { WebViewMessageEvent, WebViewProps } from "react-native-webview";
 import { EVENT_KEY } from "./common";
-import { Message } from "./types";
+import type { Message } from "./types";
 
 export const useWebViewMessage = <T>(
   onSubscribe: (message: Message<T>) => void

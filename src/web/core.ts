@@ -1,5 +1,5 @@
 import { EVENT_KEY, ROOT_ID } from "../common";
-import { Message } from "../types";
+import type { Message } from "../types";
 
 export const buildRender = <T>(render: (...args: any[]) => any) => {
   return (root: T): string => {
