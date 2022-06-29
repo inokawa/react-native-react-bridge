@@ -2,7 +2,23 @@
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
   "schedule": ["monthly"],
+  "minor": {
+    "automerge": true
+  },
   "patch": {
     "automerge": true
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom",
+        "react-native",
+        "metro-react-native-babel-preset"
+      ],
+      "automerge": false
+    }
+  ]
 }
