@@ -220,3 +220,15 @@ cd examples/DemoAppExpo
 yarn
 expo start
 ```
+
+## Contribute
+
+All contributions are welcome!
+If you have any feature requests or improvements, please create a [issue](https://github.com/inokawa/react-native-react-bridge/issues) or [PR](https://github.com/inokawa/react-native-react-bridge/pulls).
+
+### Making a Pull Request
+
+1. Clone this repo.
+2. Run `npm install`.
+3. Commit your fix.
+4. Make a PR and confirm all the CI checks passed.
