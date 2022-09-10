@@ -6,11 +6,9 @@ const createPath = (filename) =>
   path.join(__dirname, "../../fixtures", filename);
 const readFixture = (filename) => fs.readFileSync(filename, "utf-8");
 
-describe("transform", () => {
-  beforeEach(() => {
-    jest.setTimeout(30000);
-  });
+jest.setTimeout(30000);
 
+describe("transform", () => {
   it("export default", async () => {
     const filename = "app-export-default.jsx";
     const filePath = createPath(filename);
