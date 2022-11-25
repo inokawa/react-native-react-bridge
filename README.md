@@ -189,6 +189,10 @@ const App = () => {
 
 ### 4. Start your React Native app!
 
+## Documentation
+
+- [API reference](./docs/API.md)
+
 ## FAQs
 
 ### My webview displays a blank page.

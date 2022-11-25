@@ -1,0 +1,17 @@
+{
+  "entryPoints": [
+    "./src/index.ts",
+    "./src/plugin",
+    "./src/web/react.ts",
+    "./src/web/preact.ts"
+  ],
+  "out": "docs",
+  "name": "API",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "excludeExternals": true,
+  "sort": [],
+  "githubPages": false,
+  "entryDocument": "API.md",
+  "hideBreadcrumbs": true
+}
