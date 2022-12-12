@@ -2,36 +2,13 @@
 
 ## Table of contents
 
-### Type Aliases
-
-- [Message](index.md#message)
-
 ### Functions
 
 - [useWebViewMessage](index.md#usewebviewmessage)
 
-## Type Aliases
+### Type Aliases
 
-### Message
-
-Ƭ **Message**<`T`\>: `Object`
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `type` | `string` |
-| `data` | `T` |
-
-#### Defined in
-
-[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/87e45a4/src/types.ts#L1)
+- [Message](index.md#message)
 
 ## Functions
 
@@ -63,4 +40,27 @@
 
 #### Defined in
 
-[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/87e45a4/src/hooks.ts#L7)
+[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/d9b97d5/src/hooks.ts#L7)
+
+## Type Aliases
+
+### Message
+
+Ƭ **Message**<`T`\>: `Object`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` |
+| `data` | `T` |
+
+#### Defined in
+
+[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/d9b97d5/src/types.ts#L1)
