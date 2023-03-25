@@ -13,7 +13,7 @@
     "test": "jest",
     "tsc": "tsc -p . --noEmit",
     "typedoc": "typedoc",
-    "prepublishOnly": "rimraf lib && npm run build"
+    "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
   },
   "dependencies": {
     "babel-plugin-module-resolver": "4.1.0"
