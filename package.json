@@ -38,7 +38,7 @@
     "rollup": "2.70.1",
     "ts-jest": "29.0.5",
     "tslib": "2.3.1",
-    "typedoc": "0.23.22",
+    "typedoc": "0.23.28",
     "typedoc-plugin-markdown": "3.13.6",
     "typescript": "4.6.3"
   },
