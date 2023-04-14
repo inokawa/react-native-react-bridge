@@ -1,6 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
 import path from "path";
-import pkg from "./package.json";
+import pkg from "./package.json" assert { type: "json" };
 
 const mainDir = path.dirname(pkg.main);
 const moduleDir = path.dirname(pkg.module);
