@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/d9b97d5/src/hooks.ts#L7)
+[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/bba6165/src/hooks.ts#L7)
 
 ## Type Aliases
 
@@ -63,4 +63,4 @@
 
 #### Defined in
 
-[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/d9b97d5/src/types.ts#L1)
+[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/bba6165/src/types.ts#L1)
