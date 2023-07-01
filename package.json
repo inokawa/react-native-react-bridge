@@ -33,7 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.1",
-    "react-native-webview": "11.22.4",
+    "react-native-webview": "11.26.1",
     "rimraf": "3.0.2",
     "rollup": "3.20.2",
     "ts-jest": "29.0.5",
