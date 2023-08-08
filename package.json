@@ -5,6 +5,27 @@
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.js"
+    },
+    "./lib/plugin": {
+      "default": "./lib/plugin/index.js"
+    },
+    "./lib/web": {
+      "types": "./lib/web/index.d.ts",
+      "import": "./lib/web/index.mjs",
+      "default": "./lib/web/index.js"
+    },
+    "./lib/web/preact": {
+      "types": "./lib/web/preact.d.ts",
+      "import": "./lib/web/preact.mjs",
+      "default": "./lib/web/preact.js"
+    }
+  },
   "files": [
     "lib"
   ],
