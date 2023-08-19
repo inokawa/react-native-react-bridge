@@ -1325,12 +1325,7 @@ __r(0);})()</script>
     "trailingComments": undefined,
     "type": "File",
   },
-  "functionMap": {
-    "mappings": "AAA",
-    "names": [
-      "<global>",
-    ],
-  },
+  "metadata": {},
 }
 `;
 
@@ -2659,12 +2654,7 @@ __r(0);})()</script>
     "trailingComments": undefined,
     "type": "File",
   },
-  "functionMap": {
-    "mappings": "AAA",
-    "names": [
-      "<global>",
-    ],
-  },
+  "metadata": {},
 }
 `;
 
@@ -3391,11 +3381,6 @@ __r(0);})()</script>
     "trailingComments": undefined,
     "type": "File",
   },
-  "functionMap": {
-    "mappings": "AAA",
-    "names": [
-      "<global>",
-    ],
-  },
+  "metadata": {},
 }
 `;
