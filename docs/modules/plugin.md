@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[src/plugin/index.js:6](https://github.com/inokawa/react-native-react-bridge/blob/6cedde5/src/plugin/index.js#L6)
+[src/plugin/index.js:6](https://github.com/inokawa/react-native-react-bridge/blob/cd6af9e/src/plugin/index.js#L6)
