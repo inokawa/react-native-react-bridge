@@ -61,6 +61,8 @@ export default [
       {
         file: `${mainDir}/plugin/index.js`,
         format: "cjs",
+        // https://github.com/inokawa/react-native-react-bridge/issues/126
+        interop: "auto",
       },
     ],
   },
