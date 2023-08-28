@@ -193,9 +193,9 @@ const App = () => {
 
 - [API reference](./docs/API.md)
 
-## FAQs
+### FAQs
 
-### My webview displays a blank page.
+#### My webview displays a blank page.
 
 react-native-webview has some ways to show errors occurred in webview. This may be helpful to troubleshoot it.
 
