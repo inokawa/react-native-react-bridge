@@ -57,7 +57,7 @@
     "react-native-webview": "11.26.1",
     "rimraf": "3.0.2",
     "rollup": "3.28.1",
-    "ts-jest": "29.0.5",
+    "ts-jest": "29.1.1",
     "tslib": "2.5.2",
     "typedoc": "0.24.8",
     "typedoc-plugin-markdown": "3.15.4",
