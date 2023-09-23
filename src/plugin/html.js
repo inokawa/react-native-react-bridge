@@ -1,9 +1,14 @@
 import { ROOT_ID } from "../common";
 
-export const createContent = (js) => { 
-  js = js.replace(/([`$])/g, '\\$1');
-  return "export default String.raw`\n"+wrapByHtml(js)+"\n`.replace(/\\\\([`$])/g, '\\$1')"; 
-}
+export const createContent = (js) => {
+  // https://github.com/inokawa/react-native-react-bridge/pull/133
+  js = js.replace(/([`$])/g, "\\$1");
+  return (
+    "export default String.raw`\n" +
+    wrapByHtml(js) +
+    "\n`.replace(/\\\\([`$])/g, '\\$1')"
+  );
+};
 
 const wrapByHtml = (js) => `
 <!DOCTYPE html>
