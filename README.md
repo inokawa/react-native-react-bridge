@@ -58,10 +58,11 @@ npm install preact
 
 ### Supported react-native versions
 
-| react-native-react-bridge | react-native |
-| ------------------------- | ------------ |
-| >=0.9.0                   | >=0.65.0     |
-| 0.0.0 - 0.8.1             | <=0.64.2     |
+| react-native-react-bridge | react-native     |
+| ------------------------- | ---------------- |
+| >=0.11.2                  | >=0.70.0         |
+| >=0.9.0                   | >=0.65.0 <0.70.0 |
+| 0.0.0 - 0.8.1             | <=0.64.2         |
 
 ## Usage
 
