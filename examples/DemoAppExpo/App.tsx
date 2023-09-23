@@ -1,17 +1,25 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+
 import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
   View,
-  TextInput,
+  Text,
   Pressable,
+  TextInput,
 } from "react-native";
 import WebView from "react-native-webview";
 import { useWebViewMessage } from "react-native-react-bridge";
 import webApp from "./WebApp";
 
-export default function App() {
+const App = () => {
   const [data, setData] = useState("This is React Native");
   const { ref, onMessage, emit } = useWebViewMessage<string>((message) => {
     if (message.type === "hi") {
@@ -44,7 +52,7 @@ export default function App() {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -70,3 +78,5 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgray",
   },
 });
+
+export default App;
