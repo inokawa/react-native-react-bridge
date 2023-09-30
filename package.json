@@ -55,7 +55,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.4",
     "react-native-webview": "11.26.1",
-    "rimraf": "5.0.1",
+    "rimraf": "5.0.5",
     "rollup": "3.28.1",
     "ts-jest": "29.1.1",
     "tslib": "2.5.2",
