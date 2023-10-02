@@ -87,6 +87,48 @@ module.exports = {
 };
 ```
 
+##### Projects with Multiple Transformers
+If your project at some point requires a metro configuration with additional transformers, consider making a separate `customTransformer.js` file in the project root with logic for delegating files types to the appropriate transformer, and modifying `metro.config.js` file to reference the customer transformer file.  For example, if you are using `react-native-svg-transformer`, this would be your custom transformer file:
+```js
+// root/customTransformer.js
+var reactNativeReactBridgeTransformer = require('react-native-react-bridge/lib/plugin');
+var svgTransformer = require('react-native-svg-transformer');
+
+module.exports.transform = function ({ src, filename, options }) {
+  if (filename.endsWith('.svg')) {
+    return svgTransformer.transform({ src, filename, options });
+  } else {
+    return reactNativeReactBridgeTransformer.transform({
+      src,
+      filename,
+      options,
+    });
+  }
+};
+```
+
+And this would be your metro config:
+```js
+// root/metro.config.js
+const { getDefaultConfig } = require('metro-config');
+
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts, assetExts },
+  } = await getDefaultConfig();
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve('./customTransformer.js'),
+    },
+    resolver: {
+      assetExts: assetExts.filter(ext => ext !== 'svg'),
+      sourceExts: [...sourceExts, 'svg'],
+    },
+  };
+})();
+
+```
+
 #### Expo
 
 ```javascript
