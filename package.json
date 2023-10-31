@@ -43,7 +43,7 @@
     "@babel/core": "7.22.11",
     "@babel/preset-env": "7.22.14",
     "@babel/traverse": "7.22.11",
-    "@rollup/plugin-typescript": "11.1.4",
+    "@rollup/plugin-typescript": "11.1.5",
     "@types/node": "20.6.4",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
