@@ -278,4 +278,5 @@ If you find a problem, feel free to create an [issue](https://github.com/inokawa
 1. Fork this repo.
 2. Run `npm install`.
 3. Commit your fix.
-4. Make a PR and confirm all the CI checks passed.
+4. Add tests to cover the fix.
+5. Make a PR and confirm all the CI checks passed.
