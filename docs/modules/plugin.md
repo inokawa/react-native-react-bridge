@@ -1,5 +1,7 @@
 # Module: plugin
 
+Custom babelTransformer for metro bundler
+
 ## Table of contents
 
 ### Functions
@@ -24,4 +26,4 @@
 
 #### Defined in
 
-[src/plugin/index.js:6](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/plugin/index.js#L6)
+[src/plugin/index.js:11](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/plugin/index.js#L11)

@@ -1,5 +1,7 @@
 # Module: index
 
+Modules for React Native
+
 ## Table of contents
 
 ### Functions
@@ -40,7 +42,7 @@
 
 #### Defined in
 
-[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/hooks.ts#L7)
+[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/hooks.ts#L7)
 
 ## Type Aliases
 
@@ -63,4 +65,4 @@
 
 #### Defined in
 
-[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/types.ts#L1)
+[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/types.ts#L1)

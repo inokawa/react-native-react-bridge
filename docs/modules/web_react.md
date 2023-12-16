@@ -1,5 +1,7 @@
 # Module: web/react
 
+Modules for React DOM
+
 ## Table of contents
 
 ### Functions
@@ -26,7 +28,7 @@
 
 #### Defined in
 
-[src/web/core.ts:5](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/web/core.ts#L5)
+[src/web/core.ts:5](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/web/core.ts#L5)
 
 ___
 
@@ -52,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/web/core.ts:18](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/web/core.ts#L18)
+[src/web/core.ts:18](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/web/core.ts#L18)
 
 ___
 
@@ -78,4 +80,4 @@ ___
 
 #### Defined in
 
-[src/web/core.ts:11](https://github.com/inokawa/react-native-react-bridge/blob/583a562/src/web/core.ts#L11)
+[src/web/core.ts:11](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/web/core.ts#L11)
