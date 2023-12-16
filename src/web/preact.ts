@@ -1,3 +1,8 @@
+/**
+ * Modules for Preact
+ *
+ * @module
+ */
 import { useEffect } from "preact/compat";
 import { render, ComponentChild } from "preact";
 import { buildRender, buildUseNativeMessage, emit } from "./core";

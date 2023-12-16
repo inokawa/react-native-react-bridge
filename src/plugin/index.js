@@ -1,3 +1,8 @@
+/**
+ * Custom babelTransformer for metro bundler
+ *
+ * @module
+ */
 import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
 import { bundle } from "./metro";

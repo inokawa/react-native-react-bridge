@@ -1,3 +1,8 @@
+/**
+ * Modules for React DOM
+ *
+ * @module
+ */
 import { ReactNode, useEffect } from "react";
 import { render } from "react-dom";
 import { buildRender, buildUseNativeMessage, emit } from "./core";
