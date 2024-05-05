@@ -48,4 +48,11 @@ describe("isEntryFile", () => {
     const paths = isEntryFile(src, filename);
     expect(paths).toEqual(true);
   });
+
+  it("export default webViewRender(App) (react createRoot)", () => {
+    const filename = "app-export-default-react.jsx";
+    const src = readFixture(filename);
+    const paths = isEntryFile(src, filename);
+    expect(paths).toEqual(true);
+  });
 });

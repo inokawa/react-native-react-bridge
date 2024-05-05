@@ -15,6 +15,15 @@ export const isEntryFile = (src: string, filename: string) => {
               name: "webViewRender",
             },
           },
+        }) ||
+        looksLike(path.node, {
+          declaration: {
+            type: "CallExpression",
+            callee: {
+              type: "Identifier",
+              name: "webViewCreateRoot",
+            },
+          },
         })
       ) {
         isEntry = true;
