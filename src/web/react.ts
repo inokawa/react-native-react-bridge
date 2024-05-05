@@ -5,6 +5,7 @@
  */
 import { ReactElement, useEffect } from "react";
 import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { emit, getWebViewRootElement, listenNativeMessage } from "./core";
 import type { Message } from "../types";
 
@@ -16,6 +17,14 @@ import type { Message } from "../types";
  */
 export const webViewRender = (root: ReactElement): string => {
   render(root, getWebViewRootElement());
+  return ""; // dummy
+};
+
+/**
+ * {@link webViewRender} but initiated with React's createRoot
+ */
+export const webViewCreateRoot = (root: ReactElement): string => {
+  createRoot(getWebViewRootElement()).render(root);
   return ""; // dummy
 };
 
