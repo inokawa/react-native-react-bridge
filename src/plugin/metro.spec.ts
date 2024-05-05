@@ -9,14 +9,20 @@ const resolvePath = (filename: string) =>
 
 jest.setTimeout(30000);
 
-const runInVmContext = (code: string) => {
-  const context = vm.createContext({});
+const runInVmContext = (code: string): string => {
+  let evaluatedStr: string;
+  const context = vm.createContext({
+    render: (str: string) => {
+      evaluatedStr = str;
+    },
+  });
 
   vm.runInContext(
     // vm does not support esm yet
-    code.replace(/^export default /, ""),
+    `render(${code.replace(/^export default /, "")});`,
     context
   );
+  return evaluatedStr!;
 };
 
 describe("bundle", () => {
@@ -28,7 +34,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("default (tsx)", async () => {
@@ -39,7 +45,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with json", async () => {
@@ -50,7 +56,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with txt", async () => {
@@ -61,7 +67,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with md", async () => {
@@ -72,7 +78,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with images", async () => {
@@ -83,7 +89,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with html", async () => {
@@ -94,7 +100,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with wasm", async () => {
@@ -105,7 +111,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("with backticks", async () => {
@@ -116,7 +122,7 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 
   it("default (preact)", async () => {
@@ -127,6 +133,6 @@ describe("bundle", () => {
 
     const bundled = buildWebEntryModule(res);
     expect(bundled).toMatchSnapshot();
-    runInVmContext(bundled);
+    expect(runInVmContext(bundled)).toMatchSnapshot();
   });
 });
