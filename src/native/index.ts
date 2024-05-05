@@ -1,8 +1,8 @@
 import { useCallback, useRef } from "react";
 import type WebView from "react-native-webview";
 import type { WebViewMessageEvent, WebViewProps } from "react-native-webview";
-import { EVENT_KEY } from "./common";
-import type { Message } from "./types";
+import { EVENT_KEY } from "../constants";
+import type { Message } from "../types";
 
 /**
  * A hook to subscribe messages from WebView.

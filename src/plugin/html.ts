@@ -1,4 +1,4 @@
-import { ROOT_ID } from "../common";
+import { ROOT_ID } from "../constants";
 
 export const createContent = (js: string): string => {
   // https://github.com/inokawa/react-native-react-bridge/pull/133

@@ -1,4 +1,4 @@
-import { EVENT_KEY, ROOT_ID } from "../common";
+import { EVENT_KEY, ROOT_ID } from "../constants";
 import type { Message } from "../types";
 
 /**
