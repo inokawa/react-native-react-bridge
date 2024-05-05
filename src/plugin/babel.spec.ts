@@ -1,8 +1,9 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { describe, it, expect } from "@jest/globals";
 import { isEntryFile } from "./babel";
 
-const readFixture = (filename) =>
+const readFixture = (filename: string) =>
   fs.readFileSync(path.join(__dirname, "../../fixtures", filename), "utf-8");
 
 describe("isEntryFile", () => {

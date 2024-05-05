@@ -1,8 +1,8 @@
-import { parseSync, transformSync } from "@babel/core";
+import { parseSync } from "@babel/core";
 import traverse from "@babel/traverse";
 
-export const isEntryFile = (src, filename) => {
-  const ast = parseSync(src, { filename });
+export const isEntryFile = (src: string, filename: string) => {
+  const ast = parseSync(src, { filename })!;
   let isEntry = false;
   traverse(ast, {
     ExportDefaultDeclaration(path) {
@@ -24,13 +24,13 @@ export const isEntryFile = (src, filename) => {
   return isEntry;
 };
 
-function looksLike(a, b) {
+function looksLike(a: any, b: any): boolean {
   return (
     a &&
     b &&
     Object.keys(b).every((bKey) => {
-      const bVal = b[bKey];
-      const aVal = a[bKey];
+      const bVal = b[bKey as keyof typeof b];
+      const aVal = a[bKey as keyof typeof b];
       if (typeof bVal === "function") {
         return bVal(aVal);
       }
@@ -39,6 +39,6 @@ function looksLike(a, b) {
   );
 }
 
-function isPrimitive(val) {
+function isPrimitive(val: any): boolean {
   return val == null || /^[sbn]/.test(typeof val);
 }

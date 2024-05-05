@@ -3,13 +3,15 @@
  *
  * @module
  */
+
+// @ts-expect-error
 import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
 import { bundle } from "./metro";
 import { createContent } from "./html";
 
-export const transform = async (args) => {
-  const { filename, src, options } = args;
+export const transform = async (args: any /* TODO */) => {
+  const { filename, src } = args;
   const isEntry = isEntryFile(src, filename);
   if (isEntry) {
     const res = await bundle(filename);

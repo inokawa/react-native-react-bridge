@@ -14,14 +14,19 @@ const sourceExts = [
   "wasm",
 ];
 
-export const bundle = async (filename) => {
+export const bundle = async (filename: string): Promise<string> => {
   const config = await Metro.loadConfig();
+
+  // @ts-expect-error
   config.resolver.sourceExts = sourceExts;
+  // @ts-expect-error
   config.resolver.assetExts = config.resolver.assetExts.filter(
     (ext) => !sourceExts.includes(ext)
   );
+  // @ts-expect-error
   config.transformer.babelTransformerPath = babelTransformerPath;
 
+  // @ts-expect-error
   const { code, map } = await Metro.runBuild(config, {
     entry: filename,
     platform: "rnrb",

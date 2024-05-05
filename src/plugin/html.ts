@@ -1,6 +1,6 @@
 import { ROOT_ID } from "../common";
 
-export const createContent = (js) => {
+export const createContent = (js: string): string => {
   // https://github.com/inokawa/react-native-react-bridge/pull/133
   js = js.replace(/([`$])/g, "\\$1");
   return (
@@ -10,7 +10,7 @@ export const createContent = (js) => {
   );
 };
 
-const wrapByHtml = (js) => `
+const wrapByHtml = (js: string): string => `
 <!DOCTYPE html>
 <html>
 <head>
