@@ -41,7 +41,7 @@
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
   },
   "dependencies": {
-    "babel-plugin-module-resolver": "4.1.0"
+    "babel-plugin-module-resolver": "5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
