@@ -1,5 +1,4 @@
 import typescript from "@rollup/plugin-typescript";
-import path from "path";
 import pkg from "./package.json" assert { type: "json" };
 
 const external = (id) =>
@@ -65,7 +64,7 @@ export default [
     external,
   },
   {
-    input: "src/plugin/index.js",
+    input: "src/plugin/index.ts",
     output: [
       {
         file: pkg.exports["./lib/plugin"].default,
@@ -74,13 +73,14 @@ export default [
         interop: "auto",
       },
     ],
+    plugins: [typescript()],
     external,
   },
   {
     input: "src/plugin/transformer.js",
     output: [
       {
-        file: `${path.dirname(pkg.main)}/plugin/transformer.js`,
+        file: pkg.exports["./lib/plugin/transformer"].default,
         format: "cjs",
       },
     ],

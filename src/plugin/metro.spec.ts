@@ -1,8 +1,8 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as path from "node:path";
+import { jest, describe, it, expect } from "@jest/globals";
 import { bundle } from "./metro";
 
-const resolvePath = (filename) =>
+const resolvePath = (filename: string) =>
   path.join(__dirname, "../../fixtures", filename);
 
 jest.setTimeout(30000);

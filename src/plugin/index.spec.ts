@@ -1,10 +1,11 @@
-import * as fs from "fs";
-import * as path from "path";
-import { transform } from "./";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { jest, describe, it, expect } from "@jest/globals";
+import { transform } from ".";
 
-const createPath = (filename) =>
+const createPath = (filename: string) =>
   path.join(__dirname, "../../fixtures", filename);
-const readFixture = (filename) => fs.readFileSync(filename, "utf-8");
+const readFixture = (filename: string) => fs.readFileSync(filename, "utf-8");
 
 jest.setTimeout(30000);
 
