@@ -1,4 +1,4 @@
-import React from 'preact';
+import React from "preact";
 
 export default () => {
   return (

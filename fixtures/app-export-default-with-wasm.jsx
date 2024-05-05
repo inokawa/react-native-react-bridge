@@ -8,4 +8,4 @@ const App = () => {
   return <Comp />;
 };
 
-export default webViewRender(App);
+export default webViewRender(<App />);

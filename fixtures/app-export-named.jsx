@@ -6,4 +6,4 @@ const App = () => {
   return <Comp />;
 };
 
-export const foo = webViewRender(App);
+export const foo = webViewRender(<App />);

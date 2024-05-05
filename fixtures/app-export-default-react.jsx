@@ -7,4 +7,4 @@ const App = () => {
   return <Comp />;
 };
 
-export default webViewCreateRoot(App);
+export default webViewCreateRoot(<App />);

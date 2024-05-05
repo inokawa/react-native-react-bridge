@@ -6,4 +6,4 @@ const App = () => {
   return <Comp />;
 };
 
-webViewRender(App);
+webViewRender(<App />);

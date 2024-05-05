@@ -6,4 +6,4 @@ const App = () => {
   return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export default webViewRender(App);
+export default webViewRender(<App />);

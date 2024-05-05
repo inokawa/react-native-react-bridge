@@ -22,4 +22,4 @@ const App = () => {
   );
 };
 
-export default webViewRender(App);
+export default webViewRender(<App />);
