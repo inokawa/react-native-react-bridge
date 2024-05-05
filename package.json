@@ -56,7 +56,7 @@
     "react-native": "0.72.4",
     "react-native-webview": "11.26.1",
     "rimraf": "^5.0.5",
-    "rollup": "^3.29.4",
+    "rollup": "^4.17.2",
     "ts-jest": "^29.1.2",
     "tslib": "^2.6.2",
     "typedoc": "^0.25.12",
