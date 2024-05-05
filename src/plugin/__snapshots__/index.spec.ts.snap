@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`transform export default 1`] = `
+exports[`transform > export default 1`] = `
 {
   "ast": Node {
     "comments": [],
@@ -1454,7 +1454,7 @@ __r(0);})()</script>
 }
 `;
 
-exports[`transform export default with backticks 1`] = `
+exports[`transform > export default with backticks 1`] = `
 {
   "ast": Node {
     "comments": [],
@@ -2908,7 +2908,7 @@ __r(0);})()</script>
 }
 `;
 
-exports[`transform export default with md 1`] = `
+exports[`transform > export default with md 1`] = `
 {
   "ast": Node {
     "comments": [],

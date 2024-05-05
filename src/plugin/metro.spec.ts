@@ -1,13 +1,13 @@
 import * as path from "node:path";
 import * as vm from "node:vm";
-import { jest, describe, it, expect } from "@jest/globals";
+import { vi, describe, it, expect } from "vitest";
 import { bundle } from "./metro";
 import { buildWebEntryModule } from "./html";
 
 const resolvePath = (filename: string) =>
   path.join(__dirname, "../../fixtures", filename);
 
-jest.setTimeout(30000);
+vi.setConfig({ testTimeout: 30000 });
 
 const runInVmContext = (code: string): string => {
   let evaluatedStr: string;
