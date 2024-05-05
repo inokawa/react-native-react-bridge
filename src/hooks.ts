@@ -4,6 +4,9 @@ import type { WebViewMessageEvent, WebViewProps } from "react-native-webview";
 import { EVENT_KEY } from "./common";
 import type { Message } from "./types";
 
+/**
+ * A hook to subscribe messages from WebView.
+ */
 export const useWebViewMessage = <T>(
   onSubscribe: (message: Message<T>) => void
 ) => {
