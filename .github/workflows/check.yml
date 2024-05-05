@@ -23,5 +23,4 @@ jobs:
 
       - run: npm ci
       - run: npm run tsc
-      - run: npm run build
       - run: npm run test

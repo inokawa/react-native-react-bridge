@@ -35,6 +35,7 @@
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
+    "pretest": "npm run build",
     "tsc": "tsc -p . --noEmit",
     "typedoc": "typedoc",
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
