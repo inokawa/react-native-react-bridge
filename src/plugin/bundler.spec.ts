@@ -1,7 +1,7 @@
 import * as path from "node:path";
 import * as vm from "node:vm";
 import { vi, describe, it, expect } from "vitest";
-import { bundle } from "./metro";
+import { bundle } from "./bundler";
 import { buildWebEntryModule } from "./html";
 
 const resolvePath = (filename: string) =>

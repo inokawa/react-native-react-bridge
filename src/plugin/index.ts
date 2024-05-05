@@ -7,7 +7,7 @@
 // @ts-expect-error
 import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
-import { bundle } from "./metro";
+import { bundle } from "./bundler";
 import { buildWebEntryModule } from "./html";
 
 export const transform = async (args: any /* TODO */) => {
