@@ -1,6 +1,9 @@
 import { ROOT_ID } from "../constants";
 
-export const createContent = (js: string): string => {
+/**
+ * @internal
+ */
+export const buildWebEntryModule = (js: string): string => {
   // https://github.com/inokawa/react-native-react-bridge/pull/133
   js = js.replace(/([`$])/g, "\\$1");
   return (

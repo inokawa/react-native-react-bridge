@@ -8,7 +8,7 @@
 import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
 import { bundle } from "./metro";
-import { createContent } from "./html";
+import { buildWebEntryModule } from "./html";
 
 export const transform = async (args: any /* TODO */) => {
   const { filename, src } = args;
@@ -17,7 +17,7 @@ export const transform = async (args: any /* TODO */) => {
     const res = await bundle(filename);
     return metroTransformer.transform({
       ...args,
-      src: createContent(res),
+      src: buildWebEntryModule(res),
     });
   }
 

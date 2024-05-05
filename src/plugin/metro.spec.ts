@@ -1,11 +1,24 @@
 import * as path from "node:path";
+import * as vm from "node:vm";
 import { jest, describe, it, expect } from "@jest/globals";
 import { bundle } from "./metro";
+import { buildWebEntryModule } from "./html";
 
 const resolvePath = (filename: string) =>
   path.join(__dirname, "../../fixtures", filename);
 
 jest.setTimeout(30000);
+
+const runInVmContext = (code: string) => {
+  const context = vm.createContext({});
+
+  vm.runInContext(
+    buildWebEntryModule(code)
+      // vm does not support esm yet
+      .replace(/^export default /, ""),
+    context
+  );
+};
 
 describe("bundle", () => {
   it("default", async () => {
@@ -13,6 +26,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("default (tsx)", async () => {
@@ -20,6 +35,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with json", async () => {
@@ -27,6 +44,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with txt", async () => {
@@ -34,6 +53,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with md", async () => {
@@ -41,6 +62,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with images", async () => {
@@ -48,6 +71,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with html", async () => {
@@ -55,6 +80,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with wasm", async () => {
@@ -62,6 +89,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("with backticks", async () => {
@@ -69,6 +98,8 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 
   it("default (preact)", async () => {
@@ -76,5 +107,7 @@ describe("bundle", () => {
     const filePath = resolvePath(filename);
     const res = await bundle(filePath);
     expect(res).toMatchSnapshot();
+
+    runInVmContext(res);
   });
 });
