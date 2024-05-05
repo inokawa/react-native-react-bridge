@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:monthly",
+    ":preserveSemverRanges",
+    ":automergeMinor",
+    ":maintainLockFilesMonthly"
+  ],
+  "timezone": "Asia/Tokyo",
+  "configMigration": true,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "react-native",
+        "metro-react-native-babel-preset"
+      ],
+      "automerge": false
+    }
+  ]
+}
