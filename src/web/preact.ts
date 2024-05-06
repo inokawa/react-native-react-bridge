@@ -5,8 +5,8 @@
  */
 import { useEffect } from "preact/compat";
 import { render, ComponentChild } from "preact";
-import { listenNativeMessage, emit, getWebViewRootElement } from "./core";
-import type { Message } from "../types";
+import { listenNativeMessage, emitToNative, getWebViewRootElement } from "./core";
+import type { ReactNativeMessage } from "../types";
 
 /**
  * The entry point of web file
@@ -23,9 +23,9 @@ export const webViewRender = (root: ComponentChild): string => {
  * A hook to subscribe messages from React Native.
  */
 export const useNativeMessage = <T>(
-  onSubscribe: (message: Message<T>) => void
+  onSubscribe: (message: ReactNativeMessage<T>) => void
 ) => {
   useEffect(() => listenNativeMessage(onSubscribe), [onSubscribe]);
 };
 
-export { emit };
+export { emitToNative as emit };

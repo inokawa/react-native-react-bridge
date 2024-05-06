@@ -2,12 +2,14 @@ import { useCallback, useRef } from "react";
 import type WebView from "react-native-webview";
 import type { WebViewMessageEvent, WebViewProps } from "react-native-webview";
 import { TO_WEB_EVENT_KEY } from "../constants";
-import type { Message } from "../types";
+import type { ReactNativeMessage, WebViewMessage } from "../types";
 
 /**
  * @internal
  */
-export const buildEmitCode = <T>(message: Message<T>): string => {
+export const buildEmitToWebView = <T>(
+  message: ReactNativeMessage<T>
+): string => {
   return `(function() {
   try {
     window.dispatchEvent(new CustomEvent("${TO_WEB_EVENT_KEY}",{detail:${JSON.stringify(
@@ -24,7 +26,7 @@ export const buildEmitCode = <T>(message: Message<T>): string => {
  * A hook to subscribe messages from WebView.
  */
 export const useWebViewMessage = <T>(
-  onSubscribe: (message: Message<T>) => void
+  onSubscribe: (message: WebViewMessage<T>) => void
 ) => {
   const ref = useRef<WebView>(null);
   const onMessage: WebViewProps["onMessage"] = useCallback(
@@ -39,8 +41,8 @@ export const useWebViewMessage = <T>(
     [onSubscribe]
   );
   const emit = useCallback(
-    (message: Message<T>) => {
-      ref.current?.injectJavaScript(buildEmitCode(message));
+    (message: ReactNativeMessage<T>) => {
+      ref.current?.injectJavaScript(buildEmitToWebView(message));
     },
     [ref]
   );

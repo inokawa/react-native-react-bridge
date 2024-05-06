@@ -1,5 +1,5 @@
 import { TO_WEB_EVENT_KEY, WEB_ROOT_ID } from "../constants";
-import type { Message } from "../types";
+import type { ReactNativeMessage, WebViewMessage } from "../types";
 
 /**
  * @internal
@@ -10,7 +10,7 @@ export const getWebViewRootElement = (): HTMLElement =>
 /**
  * A function to send a message to React Native
  */
-export const emit = <T>(message: Message<T>) => {
+export const emitToNative = <T>(message: WebViewMessage<T>) => {
   (window as any).ReactNativeWebView.postMessage(JSON.stringify(message));
 };
 
@@ -18,7 +18,7 @@ export const emit = <T>(message: Message<T>) => {
  * @internal
  */
 export const listenNativeMessage = <T>(
-  onSubscribe: (message: Message<T>) => void
+  onSubscribe: (message: ReactNativeMessage<T>) => void
 ) => {
   const listener = (e: any) => {
     if (!isMessageEvent<T>(e)) return;
@@ -30,5 +30,5 @@ export const listenNativeMessage = <T>(
   };
 };
 
-const isMessageEvent = <T>(e: any): e is { detail: Message<T> } =>
+const isMessageEvent = <T>(e: any): e is { detail: ReactNativeMessage<T> } =>
   e && e.detail;

@@ -2,9 +2,9 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { useNativeMessage, emit } from "./react";
-import { useWebViewMessage, buildEmitCode } from "../native";
+import { useWebViewMessage, buildEmitToWebView } from "../native";
 import { useEffect, useState } from "react";
-import { Message } from "../types";
+import { ReactNativeMessage, WebViewMessage } from "../types";
 
 const ReactNativeWebViewEvent = "RNW";
 
@@ -19,11 +19,11 @@ const ReactNativeWebViewEvent = "RNW";
 afterEach(cleanup);
 
 describe("send message to web", () => {
-  const NativeApp = ({ message }: { message: Message<string> }) => {
+  const NativeApp = ({ message }: { message: ReactNativeMessage<string> }) => {
     return (
       <button
         onClick={() => {
-          eval(buildEmitCode(message));
+          eval(buildEmitToWebView(message));
         }}
       >
         send
@@ -84,7 +84,7 @@ describe("send message to web", () => {
 });
 
 describe("send message to native", () => {
-  const WebApp = ({ message }: { message: Message<string> }) => {
+  const WebApp = ({ message }: { message: WebViewMessage<string> }) => {
     return (
       <button
         onClick={() => {

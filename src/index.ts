@@ -3,5 +3,5 @@
  *
  * @module
  */
-export type { Message } from "./types";
+export type { ReactNativeMessage, WebViewMessage } from "./types";
 export { useWebViewMessage } from "./native";

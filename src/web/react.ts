@@ -6,8 +6,8 @@
 import { ReactElement, useEffect } from "react";
 import { render } from "react-dom";
 import { createRoot } from "react-dom/client";
-import { emit, getWebViewRootElement, listenNativeMessage } from "./core";
-import type { Message } from "../types";
+import { emitToNative, getWebViewRootElement, listenNativeMessage } from "./core";
+import type { ReactNativeMessage } from "../types";
 
 /**
  * The entry point of web file
@@ -32,9 +32,9 @@ export const webViewCreateRoot = (root: ReactElement): string => {
  * A hook to subscribe messages from React Native.
  */
 export const useNativeMessage = <T>(
-  onSubscribe: (message: Message<T>) => void
+  onSubscribe: (message: ReactNativeMessage<T>) => void
 ) => {
   useEffect(() => listenNativeMessage(onSubscribe), [onSubscribe]);
 };
 
-export { emit };
+export { emitToNative as emit };
