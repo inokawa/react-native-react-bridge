@@ -5,6 +5,22 @@ import { EVENT_KEY } from "../constants";
 import type { Message } from "../types";
 
 /**
+ * @internal
+ */
+export const buildEmitCode = <T>(message: Message<T>): string => {
+  return `(function() {
+  try {
+    window.dispatchEvent(new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(
+    message
+  )}}));
+  } catch(e) {
+    // NOP
+  }
+  return true;
+  })()`;
+};
+
+/**
  * A hook to subscribe messages from WebView.
  */
 export const useWebViewMessage = <T>(
@@ -24,16 +40,7 @@ export const useWebViewMessage = <T>(
   );
   const emit = useCallback(
     (message: Message<T>) => {
-      ref.current?.injectJavaScript(`
-(function() {
-try {
-  window.dispatchEvent(new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(message)}}));
-} catch(e) {
-  // NOP
-}
-return true;
-})()
-`);
+      ref.current?.injectJavaScript(buildEmitCode(message));
     },
     [ref]
   );
