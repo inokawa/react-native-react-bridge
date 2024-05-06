@@ -47,6 +47,7 @@ npm install react-native-react-bridge react-native-webview
 npm install react-dom
 
 # Necessary only if you render Preact app in WebView
+# preact >= 10.0
 npm install preact
 ```
 
@@ -54,7 +55,6 @@ npm install preact
 
 - react >= 16.8
 - react-native >= 0.60
-- (preact >= 10.0)
 
 ### Supported react-native versions
 
@@ -78,11 +78,14 @@ module.exports = {
     babelTransformerPath: require.resolve('react-native-react-bridge/lib/plugin'),
     ...
   },
+/*
+  // optional config
   rnrb: {
     // Set `true` if you use Preact in web side.
     // This will alias imports from `react` and `react-dom` to `preact/compat` automatically.
     preact: true
   },
+*/
   ...
 };
 ```
