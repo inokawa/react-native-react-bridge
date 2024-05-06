@@ -2,7 +2,6 @@ import * as path from "node:path";
 import * as vm from "node:vm";
 import { vi, describe, it, expect } from "vitest";
 import { bundle } from "./bundler";
-import { injectCode } from "./html";
 import { readdirSync } from "node:fs";
 
 vi.setConfig({ testTimeout: 30000 });
@@ -27,9 +26,7 @@ describe("bundle", () => {
         const res = await bundle(path.join(fixturePath, filename));
         expect(res).toMatchSnapshot();
 
-        const bundled = injectCode(res, (s) => s);
-        expect(bundled).toMatchSnapshot();
-        expect(runInVmContext(bundled)).toMatchSnapshot();
+        expect(runInVmContext(res)).toMatchSnapshot();
       });
     }
   });

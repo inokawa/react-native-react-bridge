@@ -8,16 +8,16 @@
 import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
 import { bundle } from "./bundler";
-import { buildWebEntryModule } from "./html";
+import { wrapWithWebViewHTML } from "./html";
 
 export const transform = async (args: any /* TODO */) => {
   const { filename, src } = args;
   const isEntry = isEntryFile(src, filename);
   if (isEntry) {
-    const res = await bundle(filename);
+    const res = await bundle(filename, wrapWithWebViewHTML);
     return metroTransformer.transform({
       ...args,
-      src: buildWebEntryModule(res),
+      src: "export default " + res,
     });
   }
 

@@ -14,7 +14,10 @@ const sourceExts = [
   "wasm",
 ];
 
-export const bundle = async (filename: string): Promise<string> => {
+export const bundle = async (
+  filename: string,
+  wrapHtml?: (s: string) => string
+): Promise<string> => {
   const config = await Metro.loadConfig();
 
   // @ts-expect-error
@@ -27,10 +30,22 @@ export const bundle = async (filename: string): Promise<string> => {
   config.transformer.babelTransformerPath = babelTransformerPath;
 
   // @ts-expect-error
-  const { code, map } = await Metro.runBuild(config, {
+  let { code } = await Metro.runBuild(config, {
     entry: filename,
     platform: "rnrb",
     minify: true,
   });
+
+  // https://github.com/inokawa/react-native-react-bridge/pull/133
+  code = code.replace(/([`$])/g, "\\$1");
+
+  code = `(function(){${code}})()`;
+
+  if (wrapHtml) {
+    code = wrapHtml(code);
+  }
+
+  code = "String.raw`\n" + code + "\n`.replace(/\\\\([`$])/g, '\\$1')";
+
   return code;
 };
