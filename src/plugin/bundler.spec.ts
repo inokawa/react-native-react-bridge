@@ -2,7 +2,7 @@ import * as path from "node:path";
 import * as vm from "node:vm";
 import { vi, describe, it, expect } from "vitest";
 import { bundle } from "./bundler";
-import { buildWebEntryModule } from "./html";
+import { injectCode } from "./html";
 import { readdirSync } from "node:fs";
 
 vi.setConfig({ testTimeout: 30000 });
@@ -15,11 +15,7 @@ const runInVmContext = (code: string): string => {
     },
   });
 
-  vm.runInContext(
-    // vm does not support esm yet
-    `render(${code.replace(/^export default /, "")});`,
-    context
-  );
+  vm.runInContext(`render(${code});`, context);
   return evaluatedStr!;
 };
 
@@ -31,7 +27,7 @@ describe("bundle", () => {
         const res = await bundle(path.join(fixturePath, filename));
         expect(res).toMatchSnapshot();
 
-        const bundled = buildWebEntryModule(res);
+        const bundled = injectCode(res, (s) => s);
         expect(bundled).toMatchSnapshot();
         expect(runInVmContext(bundled)).toMatchSnapshot();
       });

@@ -3,6 +3,7 @@ import { readdirSync } from "node:fs";
 import path from "node:path";
 import { bundle } from "../src/plugin/bundler";
 import { WEB_ROOT_ID } from "../src/constants";
+import { injectCode } from "../src/plugin/html";
 
 test.beforeEach(async ({}, testInfo) => {
   // https://github.com/microsoft/playwright/issues/7575#issuecomment-1168800666
@@ -23,13 +24,13 @@ test.describe("smoke webview code", () => {
           WEB_ROOT_ID
         );
 
-        await page.evaluate((code) => {
-          const script = document.createElement("script");
-          script.type = "text/javascript";
-          script.onload = eval(code);
-
-          document.head.appendChild(script);
-        }, code);
+        await page.evaluate(
+          (code) => {
+            const rawCode = eval(code);
+            eval(rawCode);
+          },
+          injectCode(code, (s) => s)
+        );
 
         await page.waitForFunction((e) => e.innerHTML, rootHandle);
         await expect(

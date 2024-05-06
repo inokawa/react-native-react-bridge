@@ -830,4 +830,4 @@ h3 {
 .monaco-editor.eclipse .monaco-editor-background {
   background: #f9f9f9;
 }
-</style><script type="text/javascript"></script>
+</style>
