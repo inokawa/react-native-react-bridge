@@ -1,6 +1,9 @@
 import { parseSync } from "@babel/core";
 import traverse from "@babel/traverse";
 
+/**
+ * @internal
+ */
 export const isEntryFile = (src: string, filename: string) => {
   // TODO try lighter approach
   const ast = parseSync(src, { filename })!;
