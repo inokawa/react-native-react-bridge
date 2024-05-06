@@ -21,7 +21,6 @@ export const listenNativeMessage = <T>(
   onSubscribe: (message: ReactNativeMessage<T>) => void
 ) => {
   const listener = (e: any) => {
-    if (!isMessageEvent<T>(e)) return;
     onSubscribe({ type: e.detail.type, data: e.detail.data });
   };
   window.addEventListener(TO_WEB_EVENT_KEY, listener);
@@ -29,6 +28,3 @@ export const listenNativeMessage = <T>(
     window.removeEventListener(TO_WEB_EVENT_KEY, listener);
   };
 };
-
-const isMessageEvent = <T>(e: any): e is { detail: ReactNativeMessage<T> } =>
-  e && e.detail;
