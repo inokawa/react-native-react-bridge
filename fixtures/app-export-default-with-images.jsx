@@ -1,12 +1,12 @@
 import React from "react";
 import { webViewRender } from "react-native-react-bridge/lib/web";
-import bmp from "./twitter.bmp";
-import gif from "./twitter.gif";
-import png from "./twitter.png";
-import jpg from "./twitter.jpg";
-import jpeg from "./twitter.jpeg";
-import webp from "./twitter.webp";
-import svg from "./twitter.svg";
+import bmp from "./assets/twitter.bmp";
+import gif from "./assets/twitter.gif";
+import png from "./assets/twitter.png";
+import jpg from "./assets/twitter.jpg";
+import jpeg from "./assets/twitter.jpeg";
+import webp from "./assets/twitter.webp";
+import svg from "./assets/twitter.svg";
 
 const App = () => {
   return (

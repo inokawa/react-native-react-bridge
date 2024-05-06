@@ -1,7 +1,7 @@
 import React from "react";
 import { webViewRender } from "react-native-react-bridge/lib/web";
-import Comp from "./Component";
-import data from "./example.json";
+import Comp from "./components/Component";
+import data from "./assets/example.json";
 
 alert(data);
 
