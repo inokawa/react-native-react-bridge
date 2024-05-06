@@ -2,6 +2,7 @@ import { parseSync } from "@babel/core";
 import traverse from "@babel/traverse";
 
 export const isEntryFile = (src: string, filename: string) => {
+  // TODO try lighter approach
   const ast = parseSync(src, { filename })!;
   let isEntry = false;
   traverse(ast, {
