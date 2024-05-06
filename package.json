@@ -37,6 +37,7 @@
     "test": "vitest --run",
     "pretest": "npm run build",
     "tsc": "tsc -p . --noEmit",
+    "test-ct": "playwright test -c playwright-ct.config.ts",
     "typedoc": "typedoc",
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
   },
@@ -47,6 +48,7 @@
     "@babel/core": "^7.22.11",
     "@babel/preset-env": "^7.22.14",
     "@babel/traverse": "^7.22.11",
+    "@playwright/experimental-ct-react": "^1.43.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@testing-library/react": "^15.0.6",
     "@types/babel__core": "^7.20.5",

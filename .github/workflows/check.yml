@@ -13,10 +13,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
           cache: "npm"
@@ -24,3 +24,6 @@ jobs:
       - run: npm ci
       - run: npm run tsc
       - run: npm run test
+
+      - run: npx playwright install chromium
+      - run: npm run test-ct
