@@ -26,10 +26,8 @@ export const useWebViewMessage = <T>(
     (message: Message<T>) => {
       ref.current?.injectJavaScript(`
 (function() {
-try { 
-  window.dispatchEvent(
-    new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(message)}})
-  );
+try {
+  window.dispatchEvent(new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(message)}}));
 } catch(e) {
   // NOP
 }
