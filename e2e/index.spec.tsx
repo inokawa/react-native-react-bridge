@@ -3,7 +3,6 @@ import { readdirSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { bundle } from "../src/plugin/bundler";
-import { wrapWithWebViewHTML } from "../src/plugin/html";
 import { WEB_ROOT_ID } from "../src/constants";
 
 test.beforeEach(async ({}, testInfo) => {
@@ -18,11 +17,12 @@ test.describe("smoke webview", () => {
   readdirSync(fixturePath).forEach((filename) => {
     if (filename.endsWith(".jsx") || filename.endsWith(".tsx")) {
       test(filename, async ({ page }) => {
-        const code = await bundle(
-          path.join(fixturePath, filename),
-          wrapWithWebViewHTML
-        );
-        const html = eval(code);
+        const isPreact = filename.includes("preact");
+        const isWeb = filename.includes("web");
+        const html = await bundle(path.join(fixturePath, filename), {
+          preact: isPreact,
+          web: isWeb,
+        });
         expect(html).toMatchSnapshot();
 
         await writeFile(path.join(tempPath, filename) + ".html", html, "utf-8");

@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/react-native-react-bridge) ![npm](https://img.shields.io/npm/dw/react-native-react-bridge) ![check](https://github.com/inokawa/react-native-react-bridge/workflows/check/badge.svg)
 
-An easy way to integrate your [React](https://github.com/facebook/react) (or [Preact](https://github.com/preactjs/preact)) app into [React Native](https://github.com/facebook/react-native) app with WebView.
+An easy way to integrate your [React](https://github.com/facebook/react) (or [Preact](https://github.com/preactjs/preact)/[React Native Web](https://github.com/necolas/react-native-web)) app into [React Native](https://github.com/facebook/react-native) app with WebView.
 
 ## Why?
 
@@ -21,8 +21,8 @@ The communication between React app and React Native app will be also simplified
 
 ## Features
 
-- Create React (or Preact) app bundle for WebView automatically in build process of React Native
-  - `.js`, `.ts`, `.jsx`, `.tsx`, `.mjs` and `.cjs` will be packed into one source.
+- Create React (or Preact/React Native Web) app bundle for WebView automatically in build process of React Native
+  - All JS modules (with or without JSX/TypeScript) will be bundled with [esbuild](https://github.com/evanw/esbuild).
   - **NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.**
 - Handle communication between React Native and WebView with React hook style
   - With `useWebViewMessage` hook, you can subscribe messages from WebView.
@@ -49,20 +49,15 @@ npm install react-dom
 # Necessary only if you render Preact app in WebView
 # preact >= 10.0
 npm install preact
+
+# Necessary only if you render React Native Web app in WebView
+npm install react-native-web
 ```
 
 ### Requirements
 
-- react >= 16.8
+- react >= 16.14
 - react-native >= 0.60
-
-### Supported react-native versions
-
-| react-native-react-bridge | react-native     |
-| ------------------------- | ---------------- |
-| >=0.11.2                  | >=0.70.0         |
-| >=0.9.0                   | >=0.65.0 <0.70.0 |
-| 0.0.0 - 0.8.1             | <=0.64.2         |
 
 ## Usage
 
@@ -83,21 +78,38 @@ module.exports = {
   rnrb: {
     // Set `true` if you use Preact in web side.
     // This will alias imports from `react` and `react-dom` to `preact/compat` automatically.
-    preact: true
+    preact: true,
+    // Set `true` if you use react-native-web in web side.
+    // This will alias imports from `react-native` to `react-native-web` automatically.
+    web: true
   },
 */
   ...
 };
 ```
 
-##### Projects with Multiple Transformers
+#### Expo
+
+```javascript
+const { getDefaultConfig } = require("expo/metro-config");
+
+const config = getDefaultConfig(__dirname);
+
+config.transformer.babelTransformerPath = require.resolve(
+  "react-native-react-bridge/lib/plugin"
+);
+
+module.exports = config;
+```
+
+#### Projects with Multiple Transformers
 
 If your project at some point requires a metro configuration with additional transformers, consider making a separate `customTransformer.js` file in the project root with logic for delegating files types to the appropriate transformer, and modifying `metro.config.js` file to reference the customer transformer file. For example, if you are using `react-native-svg-transformer`, this would be your custom transformer file:
 
 ```js
 // root/customTransformer.js
-var reactNativeReactBridgeTransformer = require("react-native-react-bridge/lib/plugin");
-var svgTransformer = require("react-native-svg-transformer");
+const reactNativeReactBridgeTransformer = require("react-native-react-bridge/lib/plugin");
+const svgTransformer = require("react-native-svg-transformer");
 
 module.exports.transform = function ({ src, filename, options }) {
   if (filename.endsWith(".svg")) {
@@ -134,29 +146,10 @@ module.exports = (async () => {
 })();
 ```
 
-#### Expo
-
-```javascript
-const { getDefaultConfig } = require("expo/metro-config");
-
-const config = getDefaultConfig(__dirname);
-
-module.exports = {
-  ...config,
-  transformer: {
-    ...config.transformer,
-    babelTransformerPath: require.resolve(
-      "react-native-react-bridge/lib/plugin"
-    ),
-  },
-};
-```
-
 ### 2. Make entry file for web app.
 
-- If you use React in web, import modules from `react` and `react-native-react-bridge/lib/web`.
-- If you use Preact in web, import modules from `preact` and `react-native-react-bridge/lib/web/preact`.
-- If you use Preact in web but with React aliases, import modules from `react` and `react-native-react-bridge/lib/web`.
+- If you use React, React Native Web or Preact with React alias, import modules `react-native-react-bridge/lib/web`.
+- If you use Preact, import modules from `react-native-react-bridge/lib/web/preact`.
 
 ```jsx
 // WebApp.js
@@ -253,24 +246,11 @@ https://github.com/react-native-webview/react-native-webview/blob/master/docs/Re
 
 This repository includes demo app.
 
-### React Native
-
-Before running this app, please prepare environment for React Native (https://reactnative.dev/docs/environment-setup).
-
 ```sh
 git clone git@github.com:inokawa/react-native-react-bridge.git
 cd examples/DemoApp
-yarn
-yarn ios # or yarn android
-```
-
-### Expo
-
-```sh
-git clone git@github.com:inokawa/react-native-react-bridge.git
-cd examples/DemoAppExpo
-yarn
-expo start
+npm install
+npm run ios # or npm run android
 ```
 
 ## Contribute

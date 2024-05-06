@@ -1,7 +1,7 @@
 {
   "name": "react-native-react-bridge",
   "version": "0.11.2",
-  "description": "An easy way to integrate your React (or Preact) app into React Native app with WebView.",
+  "description": "An easy way to integrate your React (or Preact/React Native Web) app into React Native app with WebView.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
@@ -14,9 +14,6 @@
     },
     "./lib/plugin": {
       "default": "./lib/plugin/index.js"
-    },
-    "./lib/plugin/transformer": {
-      "default": "./lib/plugin/transformer.js"
     },
     "./lib/web": {
       "types": "./lib/web/index.d.ts",
@@ -42,12 +39,12 @@
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
   },
   "dependencies": {
-    "babel-plugin-module-resolver": "5.0.2"
+    "@babel/core": "7.24.5",
+    "@babel/plugin-syntax-jsx": "7.24.1",
+    "@babel/traverse": "7.24.5",
+    "esbuild": "^0.20.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
-    "@babel/preset-env": "^7.22.14",
-    "@babel/traverse": "^7.22.11",
     "@playwright/test": "^1.43.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@testing-library/react": "^15.0.6",
@@ -58,11 +55,11 @@
     "@types/react-dom": "^18.2.23",
     "http-server": "^14.1.1",
     "jsdom": "^24.0.0",
-    "metro-react-native-babel-preset": "0.73.0",
     "preact": "^10.19.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-native": "0.72.4",
+    "react-native": "0.73.0",
+    "react-native-web": "^0.19.11",
     "react-native-webview": "11.26.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.17.2",
@@ -72,7 +69,7 @@
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
+    "react": ">=16.14.0",
     "react-native": ">=0.60.0",
     "react-native-webview": ">=9.0.0"
   },
@@ -86,6 +83,7 @@
     "expo",
     "react-dom",
     "preact",
+    "react-native-web",
     "metro",
     "webview",
     "html",
