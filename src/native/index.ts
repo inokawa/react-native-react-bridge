@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 import type WebView from "react-native-webview";
 import type { WebViewMessageEvent, WebViewProps } from "react-native-webview";
-import { EVENT_KEY } from "../constants";
+import { TO_WEB_EVENT_KEY } from "../constants";
 import type { Message } from "../types";
 
 /**
@@ -10,7 +10,7 @@ import type { Message } from "../types";
 export const buildEmitCode = <T>(message: Message<T>): string => {
   return `(function() {
   try {
-    window.dispatchEvent(new CustomEvent("${EVENT_KEY}",{detail:${JSON.stringify(
+    window.dispatchEvent(new CustomEvent("${TO_WEB_EVENT_KEY}",{detail:${JSON.stringify(
     message
   )}}));
   } catch(e) {

@@ -1,11 +1,11 @@
-import { EVENT_KEY, ROOT_ID } from "../constants";
+import { TO_WEB_EVENT_KEY, WEB_ROOT_ID } from "../constants";
 import type { Message } from "../types";
 
 /**
  * @internal
  */
 export const getWebViewRootElement = (): HTMLElement =>
-  document.getElementById(ROOT_ID)!;
+  document.getElementById(WEB_ROOT_ID)!;
 
 /**
  * A function to send a message to React Native
@@ -24,9 +24,9 @@ export const listenNativeMessage = <T>(
     if (!isMessageEvent<T>(e)) return;
     onSubscribe({ type: e.detail.type, data: e.detail.data });
   };
-  window.addEventListener(EVENT_KEY, listener);
+  window.addEventListener(TO_WEB_EVENT_KEY, listener);
   return () => {
-    window.removeEventListener(EVENT_KEY, listener);
+    window.removeEventListener(TO_WEB_EVENT_KEY, listener);
   };
 };
 
