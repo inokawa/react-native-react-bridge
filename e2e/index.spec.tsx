@@ -1,8 +1,44 @@
-import { test, expect } from "@playwright/experimental-ct-react";
+import { test, expect } from "@playwright/test";
+import { readdirSync } from "node:fs";
+import path from "node:path";
+import { bundle } from "../src/plugin/bundler";
+import { WEB_ROOT_ID } from "../src/constants";
 
-test.use({ viewport: { width: 500, height: 1000 } });
+test.beforeEach(async ({}, testInfo) => {
+  // https://github.com/microsoft/playwright/issues/7575#issuecomment-1168800666
+  testInfo.snapshotSuffix = "";
+});
 
-test("should work", async ({ mount }) => {
-  const component = await mount(<div>Learn React</div>);
-  await expect(component).toContainText("Learn React");
+test.describe("smoke webview code", () => {
+  const fixturePath = path.join(process.cwd(), "fixtures");
+  readdirSync(fixturePath).forEach((filename) => {
+    if (filename.endsWith(".jsx") || filename.endsWith(".tsx")) {
+      test(filename, async ({ page }) => {
+        await page.goto("localhost:3000");
+
+        const code = await bundle(path.join(fixturePath, filename));
+
+        const rootHandle = await page.waitForFunction(
+          (id) => document.getElementById(id)!,
+          WEB_ROOT_ID
+        );
+
+        await page.evaluate((code) => {
+          const script = document.createElement("script");
+          script.type = "text/javascript";
+          script.onload = eval(code);
+
+          document.head.appendChild(script);
+        }, code);
+
+        await page.waitForFunction((e) => e.innerHTML, rootHandle);
+        await expect(
+          await rootHandle.evaluate((e) => e.innerHTML)
+        ).toMatchSnapshot();
+        await expect(
+          await page.evaluate(() => document.head.innerHTML)
+        ).toMatchSnapshot();
+      });
+    }
+  });
 });

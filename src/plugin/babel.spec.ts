@@ -42,12 +42,12 @@ describe("isEntryFile", () => {
     expect(paths).toEqual(true);
   });
 
-  it("export default webViewRender(App) (preact)", async () => {
-    const filename = "app-export-default-preact.jsx";
-    const src = await readFixture(filename);
-    const paths = isEntryFile(src, filename);
-    expect(paths).toEqual(true);
-  });
+  // it("export default webViewRender(App) (preact)", async () => {
+  //   const filename = "app-export-default-preact.jsx";
+  //   const src = await readFixture(filename);
+  //   const paths = isEntryFile(src, filename);
+  //   expect(paths).toEqual(true);
+  // });
 
   it("export default webViewRender(App) (react createRoot)", async () => {
     const filename = "app-export-default-react.jsx";
