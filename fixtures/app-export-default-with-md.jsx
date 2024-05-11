@@ -1,12 +1,9 @@
 import React from "react";
 import { webViewRender } from "react-native-react-bridge/lib/web";
-import Comp from "./components/Component";
 import data from "./assets/example.md";
 
-alert(data);
-
 const App = () => {
-  return <Comp />;
+  return <div>{data}</div>;
 };
 
 export default webViewRender(<App />);
