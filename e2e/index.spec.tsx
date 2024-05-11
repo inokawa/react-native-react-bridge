@@ -23,6 +23,7 @@ test.describe("smoke webview", () => {
           wrapWithWebViewHTML
         );
         const html = eval(code);
+        expect(html).toMatchSnapshot();
 
         await writeFile(path.join(tempPath, filename) + ".html", html, "utf-8");
 
@@ -37,7 +38,6 @@ test.describe("smoke webview", () => {
         expect(
           await page.evaluate(() => document.head.innerHTML)
         ).toMatchSnapshot();
-        expect(html).toMatchSnapshot();
       });
     }
   });
