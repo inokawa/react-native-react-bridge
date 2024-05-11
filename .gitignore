@@ -1,5 +1,6 @@
 lib
 node_modules
+e2e/temp
 /test-results/
 /playwright-report/
 /blob-report/

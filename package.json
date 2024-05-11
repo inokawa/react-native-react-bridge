@@ -35,8 +35,8 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest --run",
-    "pretest": "npm run build",
     "tsc": "tsc -p . --noEmit",
+    "pree2e": "npm run build",
     "e2e": "npx playwright test",
     "typedoc": "typedoc",
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"

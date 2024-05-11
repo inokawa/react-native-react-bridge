@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
 import { readdirSync } from "node:fs";
+import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { bundle } from "../src/plugin/bundler";
+import { wrapWithWebViewHTML } from "../src/plugin/html";
 import { WEB_ROOT_ID } from "../src/constants";
 
 test.beforeEach(async ({}, testInfo) => {
@@ -9,32 +11,33 @@ test.beforeEach(async ({}, testInfo) => {
   testInfo.snapshotSuffix = "";
 });
 
-test.describe("smoke webview code", () => {
+test.describe("smoke webview", () => {
   const fixturePath = path.join(process.cwd(), "fixtures");
+  const tempPath = path.join(process.cwd(), "e2e/temp");
+
   readdirSync(fixturePath).forEach((filename) => {
     if (filename.endsWith(".jsx") || filename.endsWith(".tsx")) {
       test(filename, async ({ page }) => {
-        await page.goto("localhost:3000");
+        const code = await bundle(
+          path.join(fixturePath, filename),
+          wrapWithWebViewHTML
+        );
+        const html = eval(code);
 
-        const code = await bundle(path.join(fixturePath, filename));
+        await writeFile(path.join(tempPath, filename) + ".html", html, "utf-8");
+
+        await page.goto(`localhost:3000/temp/${filename}.html`);
 
         const rootHandle = await page.waitForFunction(
           (id) => document.getElementById(id)!,
           WEB_ROOT_ID
         );
 
-        await page.evaluate((code) => {
-          const rawCode = eval(code);
-          eval(rawCode);
-        }, code);
-
-        await page.waitForFunction((e) => e.innerHTML, rootHandle);
-        await expect(
-          await rootHandle.evaluate((e) => e.innerHTML)
-        ).toMatchSnapshot();
-        await expect(
+        expect(await rootHandle.evaluate((e) => e.innerHTML)).toMatchSnapshot();
+        expect(
           await page.evaluate(() => document.head.innerHTML)
         ).toMatchSnapshot();
+        expect(html).toMatchSnapshot();
       });
     }
   });
