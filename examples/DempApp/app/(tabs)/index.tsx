@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,12 +8,13 @@ import {
   TextInput,
 } from "react-native";
 import WebView from "react-native-webview";
-import { useWebViewMessage } from "react-native-react-bridge";
+import { emitToWebView, useWebViewMessage } from "react-native-react-bridge";
 import webApp from "../../WebApp";
 
 const App = () => {
   const [data, setData] = useState("This is React Native");
-  const { ref, onMessage, emit } = useWebViewMessage((message) => {
+  const ref = useRef<WebView>(null);
+  const onMessage = useWebViewMessage<string>((message) => {
     if (message.type === "hi") {
       setData(message.data);
     }
@@ -36,7 +37,7 @@ const App = () => {
           value={data}
         />
         <Pressable
-          onPress={() => emit({ type: "hello", data: data })}
+          onPress={() => emitToWebView(ref, { type: "hello", data: data })}
           style={styles.button}
         >
           <Text>send to Web</Text>

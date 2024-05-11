@@ -5,7 +5,11 @@
  */
 import { useEffect } from "preact/compat";
 import { render, ComponentChild } from "preact";
-import { listenNativeMessage, emitToNative, getWebViewRootElement } from "./core";
+import {
+  listenNativeMessage,
+  emitToNative,
+  getWebViewRootElement,
+} from "./core";
 import type { ReactNativeMessage } from "../types";
 
 /**
@@ -28,4 +32,4 @@ export const useNativeMessage = <T>(
   useEffect(() => listenNativeMessage(onSubscribe), [onSubscribe]);
 };
 
-export { emitToNative as emit };
+export { emitToNative };
