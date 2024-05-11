@@ -17,10 +17,12 @@ export default [
       {
         file: pkg.main,
         format: "cjs",
+        sourcemap: true,
       },
       {
         file: pkg.module,
         format: "es",
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -39,10 +41,12 @@ export default [
       {
         file: pkg.exports["./lib/web"].default,
         format: "cjs",
+        sourcemap: true,
       },
       {
         file: pkg.exports["./lib/web"].import,
         format: "es",
+        sourcemap: true,
       },
     ],
     plugins: [typescript()],
@@ -54,10 +58,12 @@ export default [
       {
         file: pkg.exports["./lib/web/preact"].default,
         format: "cjs",
+        sourcemap: true,
       },
       {
         file: pkg.exports["./lib/web/preact"].import,
         format: "es",
+        sourcemap: true,
       },
     ],
     plugins: [typescript()],
