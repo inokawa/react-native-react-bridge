@@ -19,6 +19,11 @@ Modules for Preact
 
 ▸ **webViewRender**(`root`): `string`
 
+The entry point of web file
+
+This statement is detected by babelTransformer as an entry point
+All dependencies are resolved, compressed and stringified into one file
+
 #### Parameters
 
 | Name | Type |
@@ -31,13 +36,15 @@ Modules for Preact
 
 #### Defined in
 
-[src/web/core.ts:5](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/web/core.ts#L5)
+[src/web/preact.ts:17](https://github.com/inokawa/react-native-react-bridge/blob/6e88c7aaeb2065facab677943b1589e38f6c4a47/src/web/preact.ts#L17)
 
 ___
 
 ### useNativeMessage
 
-▸ **useNativeMessage**<`T`\>(`onSubscribe`): `void`
+▸ **useNativeMessage**\<`T`\>(`onSubscribe`): `void`
+
+A hook to subscribe messages from React Native.
 
 #### Type parameters
 
@@ -49,7 +56,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `onSubscribe` | (`message`: [`Message`](index.md#message)<`T`\>) => `void` |
+| `onSubscribe` | (`message`: [`ReactNativeMessage`](../interfaces/index.ReactNativeMessage.md)\<`T`\>) => `void` |
 
 #### Returns
 
@@ -57,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/web/core.ts:18](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/web/core.ts#L18)
+[src/web/preact.ts:25](https://github.com/inokawa/react-native-react-bridge/blob/6e88c7aaeb2065facab677943b1589e38f6c4a47/src/web/preact.ts#L25)
 
 ## References
 

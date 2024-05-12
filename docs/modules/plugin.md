@@ -12,7 +12,7 @@ Custom babelTransformer for metro bundler
 
 ### transform
 
-▸ **transform**(`args`): `Promise`<`any`\>
+▸ **transform**(`args`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -22,8 +22,8 @@ Custom babelTransformer for metro bundler
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[src/plugin/index.js:11](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/plugin/index.js#L11)
+[src/plugin/index.ts:34](https://github.com/inokawa/react-native-react-bridge/blob/6e88c7aaeb2065facab677943b1589e38f6c4a47/src/plugin/index.ts#L34)

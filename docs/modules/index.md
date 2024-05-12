@@ -8,15 +8,18 @@ Modules for React Native
 
 - [useWebViewMessage](index.md#usewebviewmessage)
 
-### Type Aliases
+### Interfaces
 
-- [Message](index.md#message)
+- [ReactNativeMessage](../interfaces/index.ReactNativeMessage.md)
+- [WebViewMessage](../interfaces/index.WebViewMessage.md)
 
 ## Functions
 
 ### useWebViewMessage
 
-▸ **useWebViewMessage**<`T`\>(`onSubscribe`): `Object`
+▸ **useWebViewMessage**\<`T`\>(`onSubscribe`): `Object`
+
+A hook to subscribe messages from WebView.
 
 #### Type parameters
 
@@ -28,7 +31,7 @@ Modules for React Native
 
 | Name | Type |
 | :------ | :------ |
-| `onSubscribe` | (`message`: [`Message`](index.md#message)<`T`\>) => `void` |
+| `onSubscribe` | (`message`: [`WebViewMessage`](../interfaces/index.WebViewMessage.md)\<`T`\>) => `void` |
 
 #### Returns
 
@@ -36,33 +39,10 @@ Modules for React Native
 
 | Name | Type |
 | :------ | :------ |
-| `ref` | `RefObject`<`WebView`<{}\>\> |
+| `ref` | `RefObject`\<`WebView`\<{}\>\> |
 | `onMessage` | (`event`: `WebViewMessageEvent`) => `void` |
-| `emit` | (`message`: [`Message`](index.md#message)<`T`\>) => `void` |
+| `emit` | (`message`: [`ReactNativeMessage`](../interfaces/index.ReactNativeMessage.md)\<`T`\>) => `void` |
 
 #### Defined in
 
-[src/hooks.ts:7](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/hooks.ts#L7)
-
-## Type Aliases
-
-### Message
-
-Ƭ **Message**<`T`\>: `Object`
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `type` | `string` |
-| `data` | `T` |
-
-#### Defined in
-
-[src/types.ts:1](https://github.com/inokawa/react-native-react-bridge/blob/2039b21/src/types.ts#L1)
+[src/native/index.ts:28](https://github.com/inokawa/react-native-react-bridge/blob/6e88c7aaeb2065facab677943b1589e38f6c4a47/src/native/index.ts#L28)
