@@ -11,12 +11,7 @@
   "configMigration": true,
   "packageRules": [
     {
-      "matchPackageNames": [
-        "react",
-        "react-dom",
-        "react-native",
-        "metro-react-native-babel-preset"
-      ],
+      "matchPackageNames": ["react", "react-dom", "react-native"],
       "automerge": false
     }
   ]
