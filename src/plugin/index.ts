@@ -4,20 +4,44 @@
  * @module
  */
 
-// @ts-expect-error
-import metroTransformer from "metro-react-native-babel-transformer";
 import { isEntryFile } from "./babel";
-import { bundle } from "./bundler";
-import { wrapWithWebViewHTML } from "./html";
+import { RNRBConfig, bundle, escape } from "./bundler";
+import { join } from "path";
+
+const metroTransformer = (() => {
+  try {
+    // expo >=50.0
+    return require("@expo/metro-config/babel-transformer");
+  } catch (e) {}
+
+  try {
+    // react-native >=0.73
+    return require("@react-native/metro-babel-transformer");
+  } catch (e) {}
+
+  // react-native <0.73
+  return require("metro-react-native-babel-transformer");
+})();
+
+let metroOptions: RNRBConfig | undefined;
+try {
+  const metroConfigPath = join(process.cwd(), "metro.config.js");
+  metroOptions = require(metroConfigPath).rnrb;
+} catch {
+  // NOP
+}
 
 export const transform = async (args: any /* TODO */) => {
   const { filename, src } = args;
   const isEntry = isEntryFile(src, filename);
   if (isEntry) {
-    const res = await bundle(filename, wrapWithWebViewHTML);
+    const res = await bundle(filename, metroOptions);
     return metroTransformer.transform({
       ...args,
-      src: "export default " + res,
+      src:
+        "export default String.raw`" +
+        escape(res) +
+        "`.replace(/\\\\([`$])/g, '\\$1')",
     });
   }
 

@@ -4,7 +4,9 @@ import pkg from "./package.json" with { type: "json" };
 const external = (id) =>
   [
     "metro",
-    "metro-react-native-babel-transformer",
+    "metro-react-native-babel-transformer",  
+    "@react-native/metro-babel-transformer",
+    "@expo/metro-config/babel-transformer",
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.devDependencies || {}),
   ].some((d) => id.startsWith(d));
@@ -80,16 +82,6 @@ export default [
       },
     ],
     plugins: [typescript()],
-    external,
-  },
-  {
-    input: "src/plugin/transformer.js",
-    output: [
-      {
-        file: pkg.exports["./lib/plugin/transformer"].default,
-        format: "cjs",
-      },
-    ],
     external,
   },
 ];

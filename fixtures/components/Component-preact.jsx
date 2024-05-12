@@ -1,7 +1,7 @@
-import React from "preact";
-
 export default () => {
   return (
-    <div style={{background: 'red', width: '100vw', height: '100vh'}}>hoge</div>
+    <div style={{ background: "red", width: "100vw", height: "100vh" }}>
+      hoge
+    </div>
   );
 };
