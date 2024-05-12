@@ -79,7 +79,6 @@ export const bundle = async (
     alias,
     jsx,
     jsxImportSource,
-    // format: "esm",
     plugins: [
       {
         name: "rnrb-plugin",
