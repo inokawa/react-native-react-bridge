@@ -51,7 +51,7 @@ npm install react-dom
 npm install preact
 
 # Necessary only if you render React Native Web app in WebView
-npm install react-native-web
+npm install react-dom react-native-web
 ```
 
 ### Requirements
