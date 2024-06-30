@@ -39,9 +39,9 @@
     "prepublishOnly": "npm run typedoc && rimraf lib && npm run build"
   },
   "dependencies": {
-    "@babel/core": "7.24.6",
-    "@babel/plugin-syntax-jsx": "7.24.6",
-    "@babel/traverse": "7.24.6",
+    "@babel/core": "7.24.7",
+    "@babel/plugin-syntax-jsx": "7.24.7",
+    "@babel/traverse": "7.24.7",
     "esbuild": "^0.21.0"
   },
   "devDependencies": {
