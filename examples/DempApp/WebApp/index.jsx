@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {
   webViewRender,
-  emit,
+  emitToNative,
   useNativeMessage,
 } from 'react-native-react-bridge/lib/web';
 import './example.css';
@@ -29,7 +29,7 @@ const Root = () => {
       </div>
       <textarea value={data} onChange={e => setData(e.target.value)} />
       <div>
-        <Button onClick={() => emit({type: 'hi', data: data})}>
+        <Button onClick={() => emitToNative({type: 'hi', data: data})}>
           send to React Native
         </Button>
       </div>
