@@ -40,8 +40,8 @@ export const transform = async (args: any /* TODO */) => {
       ...args,
       src:
         "export default String.raw`" +
-        escape(res) +
-        "`.replace(/\\\\([`$])/g, '\\$1')",
+        escape(res).replace(/\$\{(.*?)\}/g, '\\$\\{$1\\}') +
+        "`.replace(/\\\\([`${}])/g, '\\$1')",
     });
   }
 
