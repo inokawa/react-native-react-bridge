@@ -1,10 +1,12 @@
+**API** • **Docs**
+
+***
+
 # API
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [index](modules/index.md)
-- [plugin](modules/plugin.md)
-- [web/react](modules/web_react.md)
-- [web/preact](modules/web_preact.md)
+- [index](index/API.md)
+- [plugin](plugin/API.md)
+- [web/react](web/react/API.md)
+- [web/preact](web/preact/API.md)
