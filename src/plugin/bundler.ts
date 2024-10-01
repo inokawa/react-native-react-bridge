@@ -54,7 +54,8 @@ module.exports = (function () {
  */
 export const bundle = async (
   filename: string,
-  options: RNRBConfig = {}
+  options: RNRBConfig = {},
+  esbuildOptions: Omit<esbuild.BuildOptions , "write" | "entryPoints" | "alias"> = {},
 ): Promise<string> => {
   const alias: Record<string, string> = {};
 
@@ -70,6 +71,8 @@ export const bundle = async (
   if (options.web) {
     alias["react-native"] = "react-native-web";
   }
+
+  const {plugins, ...restOptions} = esbuildOptions;
 
   const bundled = await esbuild.build({
     entryPoints: [filename],
@@ -139,7 +142,9 @@ export const bundle = async (
           });
         },
       },
+      ...(plugins || [])
     ],
+    ...restOptions,
   });
 
   const code = bundled.outputFiles[0]!.text;

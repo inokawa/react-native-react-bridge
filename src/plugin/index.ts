@@ -4,6 +4,7 @@
  * @module
  */
 
+import { BuildOptions } from "esbuild";
 import { isEntryFile } from "./babel";
 import { RNRBConfig, bundle, escape } from "./bundler";
 import { join } from "path";
@@ -47,3 +48,23 @@ export const transform = async (args: any /* TODO */) => {
 
   return metroTransformer.transform(args);
 };
+
+export const createTransformer = (esbuildOptions: Omit<BuildOptions , "write" | "entryPoints" | "alias"> = {} ) => {
+  const transform = async (args: any /* TODO */) => {
+    const { filename, src } = args;
+    const isEntry = isEntryFile(src, filename);
+    if (isEntry) {
+      const res = await bundle(filename, metroOptions, esbuildOptions);
+      return metroTransformer.transform({
+        ...args,
+        src:
+          "export default String.raw`" +
+          escape(res).replace(/\$\{(.*?)\}/g, '\\$\\{$1\\}') +
+          "`.replace(/\\\\([`${}])/g, '\\$1')",
+      });
+    }
+  
+    return metroTransformer.transform(args);
+  }; 
+  return transform;
+}
