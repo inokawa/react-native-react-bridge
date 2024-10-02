@@ -146,6 +146,23 @@ module.exports = (async () => {
 })();
 ```
 
+#### Custom Esbuild options
+To support custom Esbuild options, we can use Multiple Transformers method and replace the customTransformer.js file with the following code:
+
+```
+// root/customTransformer.js
+const reactNativeReactBridgeTransformer = require("react-native-react-bridge/lib/plugin");
+
+module.exports.transform = function ({ src, filename, options }) {
+    const esbuildOptions = {
+        pluglins: [
+        ],
+    };
+    const transform = reactNativeReactBridgeTransformer.createTransformer(esbuildOptions);
+    return transform({ src, filename, options });
+};
+```
+
 ### 2. Make entry file for web app.
 
 - If you use React, React Native Web or Preact with React alias, import modules `react-native-react-bridge/lib/web`.
