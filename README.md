@@ -147,19 +147,21 @@ module.exports = (async () => {
 ```
 
 #### Custom Esbuild options
+
 To support custom Esbuild options, we can use Multiple Transformers method and replace the customTransformer.js file with the following code:
 
-```
+```tsx
 // root/customTransformer.js
 const reactNativeReactBridgeTransformer = require("react-native-react-bridge/lib/plugin");
 
+const esbuildOptions = {
+  pluglins: [],
+};
+const transform =
+  reactNativeReactBridgeTransformer.createTransformer(esbuildOptions);
+
 module.exports.transform = function ({ src, filename, options }) {
-    const esbuildOptions = {
-        pluglins: [
-        ],
-    };
-    const transform = reactNativeReactBridgeTransformer.createTransformer(esbuildOptions);
-    return transform({ src, filename, options });
+  return transform({ src, filename, options });
 };
 ```
 

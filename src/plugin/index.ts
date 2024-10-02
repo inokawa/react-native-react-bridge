@@ -4,7 +4,7 @@
  * @module
  */
 
-import { BuildOptions } from "esbuild";
+import type { BuildOptions } from "esbuild";
 import { isEntryFile } from "./babel";
 import { RNRBConfig, bundle, escape } from "./bundler";
 import { join } from "path";
@@ -32,25 +32,10 @@ try {
   // NOP
 }
 
-export const transform = async (args: any /* TODO */) => {
-  const { filename, src } = args;
-  const isEntry = isEntryFile(src, filename);
-  if (isEntry) {
-    const res = await bundle(filename, metroOptions);
-    return metroTransformer.transform({
-      ...args,
-      src:
-        "export default String.raw`" +
-        escape(res).replace(/\$\{(.*?)\}/g, '\\$\\{$1\\}') +
-        "`.replace(/\\\\([`${}])/g, '\\$1')",
-    });
-  }
-
-  return metroTransformer.transform(args);
-};
-
-export const createTransformer = (esbuildOptions: Omit<BuildOptions , "write" | "entryPoints" | "alias"> = {} ) => {
-  const transform = async (args: any /* TODO */) => {
+export const createTransformer = (
+  esbuildOptions: Omit<BuildOptions, "write" | "entryPoints" | "alias"> = {}
+) => {
+  return async (args: any /* TODO */) => {
     const { filename, src } = args;
     const isEntry = isEntryFile(src, filename);
     if (isEntry) {
@@ -59,12 +44,13 @@ export const createTransformer = (esbuildOptions: Omit<BuildOptions , "write" | 
         ...args,
         src:
           "export default String.raw`" +
-          escape(res).replace(/\$/g, '\\$') +
+          escape(res).replace(/\$\{(.*?)\}/g, "\\$\\{$1\\}") +
           "`.replace(/\\\\([`${}])/g, '\\$1')",
       });
     }
-  
+
     return metroTransformer.transform(args);
-  }; 
-  return transform;
-}
+  };
+};
+
+export const transform = createTransformer();
