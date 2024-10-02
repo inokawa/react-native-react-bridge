@@ -16,7 +16,7 @@
 
 #### Defined in
 
-[src/types.ts:2](https://github.com/inokawa/react-native-react-bridge/blob/5ee94fe89bf5e5651d81f91c134d0e6639b5c7a5/src/types.ts#L2)
+[src/types.ts:2](https://github.com/inokawa/react-native-react-bridge/blob/b0a8ef6e567676174800409d4b0075e0b9a19a45/src/types.ts#L2)
 
 ***
 
@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[src/types.ts:3](https://github.com/inokawa/react-native-react-bridge/blob/5ee94fe89bf5e5651d81f91c134d0e6639b5c7a5/src/types.ts#L3)
+[src/types.ts:3](https://github.com/inokawa/react-native-react-bridge/blob/b0a8ef6e567676174800409d4b0075e0b9a19a45/src/types.ts#L3)
