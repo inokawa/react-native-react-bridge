@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
-import { useNativeMessage, emit } from "./react";
+import { useNativeMessage, emitToNative } from "./react";
 import { useWebViewMessage, buildEmitToWebView } from "../native";
 import { useEffect, useState } from "react";
 import { ReactNativeMessage, WebViewMessage } from "../types";
@@ -88,7 +88,7 @@ describe("send message to native", () => {
     return (
       <button
         onClick={() => {
-          emit(message);
+          emitToNative(message);
         }}
       >
         send
@@ -98,7 +98,7 @@ describe("send message to native", () => {
   const NativeApp = ({ target }: { target: string }) => {
     const [data, setData] = useState<null | string>(null);
     const [count, setCount] = useState(0);
-    const { onMessage } = useWebViewMessage<string>((m) => {
+    const onMessage = useWebViewMessage<string>((m) => {
       if (m.type === target) {
         setData(m.data);
       }

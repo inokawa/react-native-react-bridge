@@ -6,7 +6,11 @@
 import { ReactElement, useEffect } from "react";
 import { render } from "react-dom";
 import { createRoot } from "react-dom/client";
-import { emitToNative, getWebViewRootElement, listenNativeMessage } from "./core";
+import {
+  emitToNative,
+  getWebViewRootElement,
+  listenNativeMessage,
+} from "./core";
 import type { ReactNativeMessage } from "../types";
 
 /**
@@ -37,4 +41,4 @@ export const useNativeMessage = <T>(
   useEffect(() => listenNativeMessage(onSubscribe), [onSubscribe]);
 };
 
-export { emitToNative as emit };
+export { emitToNative };
