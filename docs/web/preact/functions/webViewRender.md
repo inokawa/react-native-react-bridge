@@ -21,4 +21,4 @@ All dependencies are resolved, compressed and stringified into one file
 
 ## Defined in
 
-[src/web/preact.ts:17](https://github.com/inokawa/react-native-react-bridge/blob/b0a8ef6e567676174800409d4b0075e0b9a19a45/src/web/preact.ts#L17)
+[src/web/preact.ts:17](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/web/preact.ts#L17)
