@@ -44,7 +44,7 @@ export const createTransformer = (
         ...args,
         src:
           "export default String.raw`" +
-          escape(res).replace(/\$\{(.*?)\}/g, "\\$\\{$1\\}") +
+          escape(res).replace(/\$/g, '\\$') +
           "`.replace(/\\\\([`$])/g, '\\$1')",
       });
     }
