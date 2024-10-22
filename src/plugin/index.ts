@@ -6,7 +6,7 @@
 
 import type { BuildOptions } from "esbuild";
 import { isEntryFile } from "./babel";
-import { RNRBConfig, bundle, escape } from "./bundler";
+import { ESCAPE, RNRBConfig, bundle, escape } from "./bundler";
 import { join } from "path";
 
 const metroTransformer = (() => {
@@ -45,7 +45,8 @@ export const createTransformer = (
         src:
           "export default String.raw`" +
           escape(res).replace(/\$/g, '\\$') +
-          "`.replace(/\\\\([`$])/g, '\\$1')",
+          "`.replace(/\\\\([`$])/g, '\\$1')" + 
+          `.replace('${ESCAPE}','\`')`
       });
     }
 
