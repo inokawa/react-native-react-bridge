@@ -4,6 +4,9 @@
 
 An easy way to integrate your [React](https://github.com/facebook/react) (or [Preact](https://github.com/preactjs/preact)/[React Native Web](https://github.com/necolas/react-native-web)) app into [React Native](https://github.com/facebook/react-native) app with WebView.
 
+> [!NOTE]
+> You may also like [Expo DOM components](https://docs.expo.dev/guides/dom-components/)
+
 ## Why?
 
 If you'd like to run your React web app in React Native, rewriting it for React Native or using [react-native-web](https://github.com/necolas/react-native-web) is preferred way in most cases.
