@@ -63,7 +63,7 @@
     "react-native-webview": "11.26.1",
     "rimraf": "^5.0.5",
     "rollup": "^4.17.2",
-    "typedoc": "^0.26.7",
+    "typedoc": "^0.27.0",
     "typedoc-plugin-markdown": "^4.2.7",
     "typescript": "^5.3.3",
     "vitest": "^1.6.0"
