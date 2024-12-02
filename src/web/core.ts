@@ -8,7 +8,7 @@ export const getWebViewRootElement = (): HTMLElement =>
   document.getElementById(WEB_ROOT_ID)!;
 
 /**
- * A function to send a message to React Native
+ * A function to send a message to React Native.
  */
 export const emitToNative = <T>(message: WebViewMessage<T>) => {
   (window as any).ReactNativeWebView.postMessage(JSON.stringify(message));
