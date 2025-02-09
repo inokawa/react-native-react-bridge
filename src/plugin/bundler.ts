@@ -10,8 +10,10 @@ export interface RNRBConfig {
   web?: boolean;
 }
 
+export const ESCAPE = "REACT_NATIVE_REACT_BRIDGE_ESCAPE"
+
 /** @internal */
-export const escape = (src: string) => src.replace(/([`])/g, "\\$1");
+export const escape = (src: string) => src.replace(/`/g, ESCAPE);
 
 const injectString = async (path: string): Promise<string> => {
   const src = await readFile(path, "utf8");
