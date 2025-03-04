@@ -1,4 +1,4 @@
-[**API**](../../../API.md) • **Docs**
+[**API**](../../../API.md)
 
 ***
 
@@ -6,16 +6,16 @@
 
 > **webViewCreateRoot**(`root`): `string`
 
+Defined in: [src/web/react.ts:26](https://github.com/inokawa/react-native-react-bridge/blob/a54748fc9a4bfd9c93c7e9a7c5213de725bd9170/src/web/react.ts#L26)
+
 [webViewRender](webViewRender.md) but initiated with React's createRoot
 
 ## Parameters
 
-• **root**: `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+### root
+
+`ReactElement`
 
 ## Returns
 
 `string`
-
-## Defined in
-
-[src/web/react.ts:26](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/web/react.ts#L26)

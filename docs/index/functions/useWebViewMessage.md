@@ -1,10 +1,12 @@
-[**API**](../../API.md) • **Docs**
+[**API**](../../API.md)
 
 ***
 
 # Function: useWebViewMessage()
 
 > **useWebViewMessage**\<`T`\>(`onSubscribe`): `object`
+
+Defined in: [src/native/index.ts:28](https://github.com/inokawa/react-native-react-bridge/blob/a54748fc9a4bfd9c93c7e9a7c5213de725bd9170/src/native/index.ts#L28)
 
 A hook to subscribe messages from WebView.
 
@@ -14,7 +16,9 @@ A hook to subscribe messages from WebView.
 
 ## Parameters
 
-• **onSubscribe**
+### onSubscribe
+
+(`message`) => `void`
 
 ## Returns
 
@@ -22,7 +26,7 @@ A hook to subscribe messages from WebView.
 
 ### ref
 
-> **ref**: `RefObject`\<`WebView`\<`object`\>\>
+> **ref**: `RefObject`\<`WebView`\<\{\}\>\>
 
 ### onMessage()
 
@@ -30,7 +34,9 @@ A hook to subscribe messages from WebView.
 
 #### Parameters
 
-• **event**: `WebViewMessageEvent`
+##### event
+
+`WebViewMessageEvent`
 
 #### Returns
 
@@ -42,12 +48,10 @@ A hook to subscribe messages from WebView.
 
 #### Parameters
 
-• **message**: [`ReactNativeMessage`](../interfaces/ReactNativeMessage.md)\<`T`\>
+##### message
+
+[`ReactNativeMessage`](../interfaces/ReactNativeMessage.md)\<`T`\>
 
 #### Returns
 
 `void`
-
-## Defined in
-
-[src/native/index.ts:28](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/native/index.ts#L28)

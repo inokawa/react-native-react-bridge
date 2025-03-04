@@ -1,4 +1,4 @@
-[**API**](../API.md) • **Docs**
+[**API**](../API.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 Custom babelTransformer for metro bundler
 
-## Index
-
-### Functions
+## Functions
 
 - [createTransformer](functions/createTransformer.md)
 - [transform](functions/transform.md)

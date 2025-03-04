@@ -1,4 +1,4 @@
-[**API**](../API.md) • **Docs**
+[**API**](../API.md)
 
 ***
 
@@ -6,13 +6,11 @@
 
 Modules for React Native
 
-## Index
-
-### Functions
+## Functions
 
 - [useWebViewMessage](functions/useWebViewMessage.md)
 
-### Interfaces
+## Interfaces
 
 - [ReactNativeMessage](interfaces/ReactNativeMessage.md)
 - [WebViewMessage](interfaces/WebViewMessage.md)

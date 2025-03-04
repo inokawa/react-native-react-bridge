@@ -1,4 +1,4 @@
-[**API**](../../API.md) • **Docs**
+[**API**](../../API.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 Modules for React DOM
 
-## Index
-
-### Functions
+## Functions
 
 - [webViewRender](functions/webViewRender.md)
 - [webViewCreateRoot](functions/webViewCreateRoot.md)

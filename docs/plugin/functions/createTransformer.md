@@ -1,4 +1,4 @@
-[**API**](../../API.md) • **Docs**
+[**API**](../../API.md)
 
 ***
 
@@ -6,9 +6,13 @@
 
 > **createTransformer**(`esbuildOptions`): (`args`) => `Promise`\<`any`\>
 
+Defined in: [src/plugin/index.ts:35](https://github.com/inokawa/react-native-react-bridge/blob/a54748fc9a4bfd9c93c7e9a7c5213de725bd9170/src/plugin/index.ts#L35)
+
 ## Parameters
 
-• **esbuildOptions**: `Omit`\<`BuildOptions`, `"write"` \| `"entryPoints"` \| `"alias"`\> = `{}`
+### esbuildOptions
+
+`Omit`\<`BuildOptions`, `"write"` \| `"entryPoints"` \| `"alias"`\> = `{}`
 
 ## Returns
 
@@ -16,12 +20,10 @@
 
 ### Parameters
 
-• **args**: `any`
+#### args
+
+`any`
 
 ### Returns
 
 `Promise`\<`any`\>
-
-## Defined in
-
-[src/plugin/index.ts:35](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/plugin/index.ts#L35)

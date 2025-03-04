@@ -1,10 +1,12 @@
-[**API**](../../../API.md) • **Docs**
+[**API**](../../../API.md)
 
 ***
 
 # Function: emit()
 
 > **emit**\<`T`\>(`message`): `void`
+
+Defined in: [src/web/core.ts:13](https://github.com/inokawa/react-native-react-bridge/blob/a54748fc9a4bfd9c93c7e9a7c5213de725bd9170/src/web/core.ts#L13)
 
 A function to send a message to React Native
 
@@ -14,12 +16,10 @@ A function to send a message to React Native
 
 ## Parameters
 
-• **message**: [`WebViewMessage`](../../../index/interfaces/WebViewMessage.md)\<`T`\>
+### message
+
+[`WebViewMessage`](../../../index/interfaces/WebViewMessage.md)\<`T`\>
 
 ## Returns
 
 `void`
-
-## Defined in
-
-[src/web/core.ts:13](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/web/core.ts#L13)

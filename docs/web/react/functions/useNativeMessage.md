@@ -1,10 +1,12 @@
-[**API**](../../../API.md) • **Docs**
+[**API**](../../../API.md)
 
 ***
 
 # Function: useNativeMessage()
 
 > **useNativeMessage**\<`T`\>(`onSubscribe`): `void`
+
+Defined in: [src/web/react.ts:34](https://github.com/inokawa/react-native-react-bridge/blob/a54748fc9a4bfd9c93c7e9a7c5213de725bd9170/src/web/react.ts#L34)
 
 A hook to subscribe messages from React Native.
 
@@ -14,12 +16,10 @@ A hook to subscribe messages from React Native.
 
 ## Parameters
 
-• **onSubscribe**
+### onSubscribe
+
+(`message`) => `void`
 
 ## Returns
 
 `void`
-
-## Defined in
-
-[src/web/react.ts:34](https://github.com/inokawa/react-native-react-bridge/blob/d26d92078fb33b1c0c8fd4a3ec39d47e56a03c08/src/web/react.ts#L34)
