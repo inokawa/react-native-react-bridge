@@ -42,7 +42,7 @@
     "@babel/core": "7.26.9",
     "@babel/plugin-syntax-jsx": "7.25.9",
     "@babel/traverse": "7.26.9",
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.25.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.43.1",
