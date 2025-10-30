@@ -28,9 +28,8 @@ The communication between React app and React Native app will be also simplified
   - All JS modules (with or without JSX/TypeScript) will be bundled with [esbuild](https://github.com/evanw/esbuild).
   - **NOTE: Only the edits in the entry file of web will invoke rebuild because of the limitation of [metro](https://github.com/facebook/metro)'s build process.**
 - Handle communication between React Native and WebView with React hook style
-  - With `useWebViewMessage` hook, you can subscribe messages from WebView.
-  - With `useNativeMessage` hook, you can subscribe messages from React Native.
-  - `emit` function sends message.
+  - With `useWebViewMessage` hook, you can subscribe messages from WebView sent with `emitToWebView`.
+  - With `useNativeMessage` hook, you can subscribe messages from React Native sent with `emitToNative`.
 - Support bundling some assets in web side with [ES6 import syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
   - `.json` is imported as an object, like require in Node.js.
   - `.txt` and `.md` are imported as string, like [raw-loader](https://github.com/webpack-contrib/raw-loader).
@@ -179,7 +178,7 @@ module.exports.transform = function ({ src, filename, options }) {
 import React, { useState } from "react";
 import {
   webViewRender,
-  emit,
+  emitToNative,
   useNativeMessage,
 } from "react-native-react-bridge/lib/web";
 // Importing css is supported
@@ -201,10 +200,10 @@ const Root = () => {
       <div>{data}</div>
       <button
         onClick={() => {
-          // emit sends message to React Native
+          // emitToNative sends message to React Native
           //   type: event name
           //   data: some data which will be serialized by JSON.stringify
-          emit({ type: "hello", data: 123 });
+          emitToNative({ type: "hello", data: 123 });
         }}
       />
     </div>
@@ -223,18 +222,19 @@ export default webViewRender(<Root />);
 
 import React from "react";
 import WebView from "react-native-webview";
-import { useWebViewMessage } from "react-native-react-bridge";
+import { emitToWebView, useWebViewMessage } from "react-native-react-bridge";
 import webApp from "./WebApp";
 
 const App = () => {
+  const ref = useRef(null);
   // useWebViewMessage hook create props for WebView and handle communication
   // The argument is callback to receive message from React
-  const { ref, onMessage, emit } = useWebViewMessage((message) => {
-    // emit sends message to React
+  const onMessage = useWebViewMessage((message) => {
+    // emitToWebView sends message to React
     //   type: event name
     //   data: some data which will be serialized by JSON.stringify
     if (message.type === "hello" && message.data === 123) {
-      emit({ type: "success", data: "succeeded!" });
+      emitToWebView(ref, { type: "success", data: "succeeded!" });
     }
   });
 

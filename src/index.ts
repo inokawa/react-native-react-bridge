@@ -4,4 +4,4 @@
  * @module
  */
 export type { ReactNativeMessage, WebViewMessage } from "./types";
-export { useWebViewMessage } from "./native";
+export { useWebViewMessage, emitToWebView } from "./native";
