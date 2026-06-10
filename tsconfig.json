@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./",
     "target": "es2018",
     "module": "esnext",
     "moduleResolution": "bundler",
