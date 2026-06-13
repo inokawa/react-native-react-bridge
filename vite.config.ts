@@ -1,4 +1,3 @@
-
 import pkg from "./package.json" with { type: "json" };
 import { extname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
